@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/screenBackground2"
+    android:background="@color/screenBackground"
     android:orientation="horizontal"
-    tools:context=".FirstFragment">
+    tools:context=".HomeFragment">
 
     <Button
         android:id="@id/random_button"
@@ -24,6 +24,7 @@
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
         android:text="@string/app_name"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -35,20 +36,20 @@
 
     <Button
         android:backgroundTint="@color/buttonBackground"
-        android:id="@+id/calenderButton"
+        android:id="@+id/buttonCalender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginEnd="32dp"
         android:text="@string/calender"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ChatButton"
+        app:layout_constraintEnd_toStartOf="@+id/buttonChat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/random_button" />
 
     <Button
         android:backgroundTint="@color/buttonBackground"
-        android:id="@+id/ChatButton"
+        android:id="@+id/buttonChat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
@@ -56,11 +57,11 @@
         android:text="@string/chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/calenderButton"
+        app:layout_constraintStart_toEndOf="@+id/buttonCalender"
         app:layout_constraintTop_toBottomOf="@+id/random_button" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -71,23 +72,24 @@
         app:layout_constraintTop_toBottomOf="@+id/appTitle" />
 
     <Button
-        android:backgroundTint="@color/buttonBackground"
         android:id="@+id/buttonToast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/buttonBackground"
         android:text="Toast"
-        app:layout_constraintBottom_toTopOf="@+id/calenderButton"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCalender"
         app:layout_constraintEnd_toStartOf="@+id/random_button"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appTitle" />
 
     <Button
-        android:backgroundTint="@color/buttonBackground"
         android:id="@+id/buttonCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/buttonBackground"
         android:text="Count"
-        app:layout_constraintBottom_toTopOf="@+id/ChatButton"
+        app:layout_constraintBottom_toTopOf="@+id/buttonChat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/random_button"
         app:layout_constraintTop_toBottomOf="@+id/appTitle" />
