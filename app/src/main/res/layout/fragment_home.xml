@@ -9,89 +9,87 @@
     tools:context=".HomeFragment">
 
     <Button
-        android:id="@id/random_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/buttonCalender"
+        android:layout_height="66dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/buttonBackground"
-        android:text="@string/random_button_text"
+        android:text="@string/calenderButtonText"
+        android:textColor="@color/buttonText"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSalesTax"
+        app:strokeColor="#1616E6"
+        app:strokeWidth="2dp" />
 
-    <TextView
-        android:id="@+id/appTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:text="@string/app_name"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/random_button"
+    <Button
+        android:id="@+id/buttonI"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/buttonBackground"
+        android:text="@string/iButtonText"
+        android:textColor="@color/buttonText"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999" />
+        app:strokeColor="#1616E6"
+        app:strokeWidth="2dp" />
 
     <Button
+        android:id="@+id/buttonSalesTax"
+        android:layout_height="66dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:backgroundTint="@color/buttonBackground"
-        android:id="@+id/buttonCalender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/calender"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonChat"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/random_button" />
-
-    <Button
-        android:backgroundTint="@color/buttonBackground"
-        android:id="@+id/buttonChat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginEnd="104dp"
-        android:text="@string/chat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonCalender"
-        app:layout_constraintTop_toBottomOf="@+id/random_button" />
-
-    <TextView
-        android:id="@+id/textView_one"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/random_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
-
-    <Button
-        android:id="@+id/buttonToast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/buttonBackground"
-        android:text="Toast"
+        android:text="@string/SalesTaxButtonText"
+        android:textColor="@color/buttonText"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonCalender"
-        app:layout_constraintEnd_toStartOf="@+id/random_button"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonPayroll"
+        app:strokeColor="#1616E6"
+        app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/buttonCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/buttonE"
+        android:layout_height="66dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:backgroundTint="@color/buttonBackground"
-        android:text="Count"
-        app:layout_constraintBottom_toTopOf="@+id/buttonChat"
+        android:text="@string/EButtonText"
+        android:textColor="@color/buttonText"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPayroll"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/random_button"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonI"
+        app:strokeColor="#1616E6"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/buttonPayroll"
+        android:layout_height="66dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/buttonBackground"
+        android:text="@string/payrollButtonText"
+        android:textColor="@color/buttonText"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSalesTax"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonE"
+        app:strokeColor="#1616E6"
+        app:strokeWidth="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
