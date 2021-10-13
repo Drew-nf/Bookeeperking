@@ -31,7 +31,35 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(HomeFragment.this).
-                        navigate(R.id.action_FirstFragment_to_calendarFragment);
+                        navigate(R.id.action_HomeFragment_to_calendarFragment);
+            }
+        });
+        view.findViewById(R.id.buttonEmployees).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomeFragment.this).
+                        navigate(R.id.action_HomeFragment_to_employeesFragment);
+            }
+        });
+        view.findViewById(R.id.buttonInvoices).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomeFragment.this).
+                        navigate(R.id.action_HomeFragment_to_invoicesFragment);
+            }
+        });
+        view.findViewById(R.id.buttonPayroll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomeFragment.this).
+                        navigate(R.id.action_HomeFragment_to_payrollFragment);
+            }
+        });
+        view.findViewById(R.id.buttonSalesTax).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomeFragment.this).
+                        navigate(R.id.action_HomeFragment_to_salesTaxFragment);
             }
         });
     }

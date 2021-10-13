@@ -12,8 +12,23 @@
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_FirstFragment_to_calendarFragment"
+            android:id="@+id/action_HomeFragment_to_calendarFragment"
             app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_employeesFragment"
+            app:destination="@id/employeesFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_invoicesFragment"
+            app:destination="@id/invoicesFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_payrollFragment"
+            app:destination="@id/payrollFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_invoicesFragment3"
+            app:destination="@id/invoicesFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_salesTaxFragment"
+            app:destination="@id/salesTaxFragment" />
     </fragment>
     <fragment
         android:id="@+id/calendarFragment"
@@ -22,6 +37,42 @@
         tools:layout="@layout/fragment_calendar" >
         <action
             android:id="@+id/action_calendarFragment_to_FirstFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeesFragment"
+        android:name="com.example.bookkeepingking.EmployeesFragment"
+        android:label="fragment_employees"
+        tools:layout="@layout/fragment_employees" >
+        <action
+            android:id="@+id/action_employeesFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/invoicesFragment"
+        android:name="com.example.bookkeepingking.InvoicesFragment"
+        android:label="fragment_invoices"
+        tools:layout="@layout/fragment_invoices" >
+        <action
+            android:id="@+id/action_invoicesFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/payrollFragment"
+        android:name="com.example.bookkeepingking.PayrollFragment"
+        android:label="fragment_payroll"
+        tools:layout="@layout/fragment_payroll" >
+        <action
+            android:id="@+id/action_payrollFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/salesTaxFragment"
+        android:name="com.example.bookkeepingking.SalesTaxFragment"
+        android:label="fragment_sales_tax"
+        tools:layout="@layout/fragment_sales_tax" >
+        <action
+            android:id="@+id/action_salesTaxFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>
