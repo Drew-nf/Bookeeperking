@@ -3,15 +3,13 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Home screen</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="random_button_text">Random</string>
     <string name="previous">Previous</string>
-    <string name="calender">Calender</string>
+    <string name="calenderButtonText">Calender</string>
+    <string name="iButtonText">Invoices</string>
+    <string name="EButtonText">Employees</string>
+    <string name="SalesTaxButtonText">Sales Tax</string>
+    <string name="payrollButtonText">Payroll</string>
     <string name="month_year">Placeholder</string>
-    <string name="chat">Chat</string>
-
     <string name="hello_first_fragment">Hello World!</string>
-    <string name="random_heading">Here is a random number between 0 and %d.</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
