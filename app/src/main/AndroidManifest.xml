@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bookkeepingking">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_2"
@@ -9,6 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_2_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookkeepingKing">
+        <activity
+            android:name=".addInvoice"
+            android:exported="true"
+            android:label="@string/title_activity_add_invoice"
+            android:theme="@style/Theme.BookkeepingKing.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

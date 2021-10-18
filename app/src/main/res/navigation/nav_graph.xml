@@ -53,9 +53,7 @@
         android:name="com.example.bookkeepingking.InvoicesFragment"
         android:label="fragment_invoices"
         tools:layout="@layout/fragment_invoices" >
-        <action
-            android:id="@+id/action_invoicesFragment_to_HomeFragment"
-            app:destination="@id/HomeFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/payrollFragment"
