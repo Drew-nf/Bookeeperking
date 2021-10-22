@@ -6,26 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".addInvoice">
 
+
+    <!--creating date scroll-->
+    
+
     <!--creating button for taking photo-->
-
-    <!--will show photo here-->
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="132dp"
-        android:layout_marginBottom="64dp"
-        android:text="add"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/fileUpload"
         android:layout_width="250dp"
@@ -39,6 +24,7 @@
         android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.5"/>
 
+    <!--will show photo here-->
     <ImageView
         android:id="@+id/invoiceTaken"
         android:layout_width="143dp"
