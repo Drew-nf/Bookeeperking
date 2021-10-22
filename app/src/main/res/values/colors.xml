@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="screenBackground">#FFDAD0D0</color>
+    <color name="screenBackground">#FFFFFF</color>
     <color name="buttonBackground"> #BBDEFB</color>
     <color name="buttonText"> #1616E6</color>
     <color name="buttonBackground2"> #FFFFFF</color>

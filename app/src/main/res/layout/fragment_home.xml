@@ -14,7 +14,7 @@
         android:layout_height="66dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="@color/buttonBackground"
         android:text="@string/calenderButtonText"
         android:textColor="@color/buttonText"
@@ -32,7 +32,7 @@
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/buttonBackground"
         android:text="@string/iButtonText"
@@ -40,6 +40,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonEmployees"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#1616E6"
@@ -74,6 +75,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonPayroll"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonInvoices"
         app:strokeColor="#1616E6"
@@ -91,9 +93,21 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonSalesTax"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonEmployees"
         app:strokeColor="#1616E6"
         app:strokeWidth="2dp" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:src="@drawable/bk_icon1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCalender" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
