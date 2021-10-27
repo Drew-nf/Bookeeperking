@@ -16,4 +16,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string-array name="Employees">
+        <item>Evan Johnson</item>
+        <item>Fadi Nakkound</item>
+        <item>Drew Finnegan</item>
+        <item>Ken Ryan</item>
+    </string-array>
 </resources>
