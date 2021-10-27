@@ -35,6 +35,29 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/plus_editEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="66dp"
+        android:text="Edit Employee info"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/plus_addEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="66dp"
+        android:text="Add new Employee"
+        android:textSize="16sp" />
 
 
 </FrameLayout>
