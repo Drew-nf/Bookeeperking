@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/HomeFragment"
         android:name="com.example.bookkeepingking.HomeFragment"
-        android:label="@string/first_fragment_label"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -73,4 +73,7 @@
             android:id="@+id/action_salesTaxFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_global_HomeFragment"
+        app:destination="@id/HomeFragment" />
 </navigation>

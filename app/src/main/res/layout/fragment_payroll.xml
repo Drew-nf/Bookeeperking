@@ -1,15 +1,325 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/screenBackground"
-    tools:context=".PayrollFragment">
+    tools:context=".PayrollFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/federalIncomeTaxInput"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/federalIncomeTax" />
+
+    <EditText
+        android:id="@+id/stateIncomeTaxInput"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicareInput" />
+
+    <EditText
+        android:id="@+id/stateDisabilityInsuranceInput"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stateIncomeTaxInput" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/stateDisabilityInsurance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="@string/stateDisabilityInsurance"
+        app:layout_constraintEnd_toStartOf="@+id/stateDisabilityInsuranceInput"
+        app:layout_constraintStart_toEndOf="@+id/buttonClose"
+        app:layout_constraintTop_toBottomOf="@+id/stateIncomeTaxInput" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/federalIncomeTax"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/federalIncomeTax"
+        app:layout_constraintEnd_toStartOf="@+id/federalIncomeTaxInput"
+        app:layout_constraintStart_toStartOf="@+id/socialSecurity"
+        app:layout_constraintTop_toTopOf="@+id/deductions" />
+
+    <EditText
+        android:id="@+id/socialSecurityInput"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/federalIncomeTaxInput" />
+
+    <TextView
+        android:id="@+id/socialSecurity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/socialSecurity"
+        app:layout_constraintEnd_toStartOf="@+id/socialSecurityInput"
+        app:layout_constraintStart_toStartOf="@+id/medicare"
+        app:layout_constraintTop_toTopOf="@+id/socialSecurityInput" />
+
+    <TextView
+        android:id="@+id/empName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/empName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPayrollCalc" />
+
+    <EditText
+        android:id="@+id/empNameInput"
+        android:layout_width="95dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/empName" />
+
+    <EditText
+        android:id="@+id/grossAmtInput"
+        android:layout_width="95dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grossAmt" />
+
+    <TextView
+        android:id="@+id/grossAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/grossAmt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/empNameInput" />
+
+    <TextView
+        android:id="@+id/employee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/employeeDesc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/employeeSpinner"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/numberOfHoursWorkedInput"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/numberOfHoursWorked"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/numOfHrsWrkdDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/numberOfHoursWorkedInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/endingPeriodDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/endPerDate"
+        app:layout_constraintBottom_toBottomOf="@+id/endingPeriodDateInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/checkDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/checkDtDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/hourlyPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/hrlPayDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/hourlyPayInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonPayrollCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/calculateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endingPeriodDateInput" />
+
+    <EditText
+        android:id="@+id/numberOfHoursWorkedInput"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employeeSpinner" />
+
+    <EditText
+        android:id="@+id/hourlyPayInput"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfHoursWorkedInput" />
+
+    <TextView
+        android:id="@+id/checkNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/checkNum"
+        app:layout_constraintStart_toStartOf="@+id/checkNumInput"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPayrollCalc" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="178dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="12dp"
+        android:inputType="date"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hourlyPayInput" />
+
+    <EditText
+        android:id="@+id/endingPeriodDateInput"
+        android:layout_width="178dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="12dp"
+        android:inputType="date"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+
+    <EditText
+        android:id="@+id/checkNumInput"
+        android:layout_width="95dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="15dp"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkNum" />
+
+    <EditText
+        android:id="@+id/netPayInput"
+        android:layout_width="95dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="15dp"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/netPay" />
+
+    <TextView
+        android:id="@+id/netPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/netPay"
+        app:layout_constraintStart_toStartOf="@+id/netPayInput"
+        app:layout_constraintTop_toBottomOf="@+id/checkNumInput" />
+
+    <TextView
+        android:id="@+id/deductions"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/deductions"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grossAmtInput" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/saveButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/closeButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonSave" />
+
+    <TextView
+        android:id="@+id/medicare"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/medicare"
+        app:layout_constraintEnd_toStartOf="@+id/medicareInput"
+        app:layout_constraintStart_toStartOf="@+id/stateIncomeTax"
+        app:layout_constraintTop_toBottomOf="@+id/socialSecurityInput" />
+
+    <EditText
+        android:id="@+id/medicareInput"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/socialSecurityInput" />
+
+    <TextView
+        android:id="@+id/stateIncomeTax"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/stateIncomeTax"
+        app:layout_constraintEnd_toStartOf="@+id/stateIncomeTaxInput"
+        app:layout_constraintStart_toStartOf="@+id/stateDisabilityInsurance"
+        app:layout_constraintTop_toTopOf="@+id/stateIncomeTaxInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

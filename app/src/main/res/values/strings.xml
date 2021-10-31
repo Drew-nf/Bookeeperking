@@ -1,21 +1,38 @@
 <resources>
     <string name="app_name">Bookkeeping King</string>
+    <!--Home screen-->
     <string name="action_settings">Settings</string>
+    <string name="calenderButton">Calender</string>
+    <string name="invoicesButton">Invoices</string>
+    <string name="employeesButton">Employees</string>
+    <string name="salesTaxButton">Sales Tax</string>
+    <string name="payrollButton">Payroll</string>
+    <!--Payroll screen-->
+    <string name="employeeDesc">Employee</string>
+    <string name="numOfHrsWrkdDesc">Number of Hours Worked</string>
+    <string name="hrlPayDesc">Hourly Pay</string>
+    <string name="checkDtDesc">Check Date</string>
+    <string name="endPerDate">Ending Period Date</string>
+
+    <string name="calculateButton">Calculate</string>
+    <string name="empName">Employee Name</string>
+    <string name="grossAmt">Gross Amount</string>
+    <string name="checkNum">Check #</string>
+    <string name="netPay">Net Pay</string>
+
+    <string name="deductions">Deductions</string>
+    <string name="federalIncomeTax">Federal Income Tax</string>
+    <string name="socialSecurity">Social Security</string>
+    <string name="medicare">Medicare</string>
+    <string name="stateIncomeTax">State Income Tax</string>
+    <string name="stateDisabilityInsurance">State Disability Insurance</string>
+
+    <string name="saveButton">Save</string>
+    <string name="closeButton">Close</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Home screen</string>
-    <string name="previous">Previous</string>
-    <string name="calenderButtonText">Calender</string>
-    <string name="iButtonText">Invoices</string>
-    <string name="EButtonText">Employees</string>
-    <string name="SalesTaxButtonText">Sales Tax</string>
-    <string name="payrollButtonText">Payroll</string>
-    <string name="month_year">Placeholder</string>
-    <string name="hello_first_fragment">Hello World!</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_add_invoice">addInvoice</string>
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="previous">Previous</string>
+    <string name="title_activity_add_invoice">addInvoice</string>
     <string-array name="Employees">
         <item>Evan Johnson</item>
         <item>Fadi Nakkound</item>

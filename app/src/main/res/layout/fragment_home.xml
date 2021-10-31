@@ -9,36 +9,36 @@
     tools:context=".HomeFragment">
 
     <Button
-        android:id="@+id/buttonCalender"
+        android:id="@+id/buttonHomeCalender"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="180dp"
         android:backgroundTint="@color/buttonBackground"
-        android:text="@string/calenderButtonText"
+        android:text="@string/calenderButton"
         android:textColor="@color/buttonText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSalesTax"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHomeSalestax"
         app:strokeColor="#1616E6"
         app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/buttonInvoices"
+        android:id="@+id/buttonHomeInvoices"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/buttonBackground"
-        android:text="@string/iButtonText"
+        android:text="@string/invoicesButton"
         android:textColor="@color/buttonText"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonEmployees"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomeEmployees"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,67 +47,57 @@
         app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/buttonSalesTax"
+        android:id="@+id/buttonHomeSalestax"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/buttonBackground"
-        android:text="@string/SalesTaxButtonText"
+        android:text="@string/salesTaxButton"
         android:textColor="@color/buttonText"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCalender"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomeCalender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPayroll"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHomePayroll"
         app:strokeColor="#1616E6"
         app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/buttonEmployees"
+        android:id="@+id/buttonHomeEmployees"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/buttonBackground"
-        android:text="@string/EButtonText"
+        android:text="@string/employeesButton"
         android:textColor="@color/buttonText"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonPayroll"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomePayroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonInvoices"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHomeInvoices"
         app:strokeColor="#1616E6"
         app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/buttonPayroll"
+        android:id="@+id/buttonHomePayroll"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/buttonBackground"
-        android:text="@string/payrollButtonText"
+        android:text="@string/payrollButton"
         android:textColor="@color/buttonText"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSalesTax"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomeSalestax"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonEmployees"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHomeEmployees"
         app:strokeColor="#1616E6"
         app:strokeWidth="2dp" />
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="190dp"
-        android:src="@drawable/bk_icon1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCalender" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
