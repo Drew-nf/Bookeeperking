@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.navigation.fragment.NavHostFragment;
 
 public class EmployeesFragment extends Fragment {
 
@@ -21,5 +22,11 @@ public class EmployeesFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        view.findViewById(R.id.buttonAddEmployee).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_addEmployee);
+            }
+        });
     }
 }

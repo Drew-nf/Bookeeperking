@@ -36,7 +36,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/plus_editEmployee"
+        android:id="@+id/buttonEditEmployee"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
@@ -48,7 +48,7 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/plus_addEmployee"
+        android:id="@+id/buttonAddEmployee"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
