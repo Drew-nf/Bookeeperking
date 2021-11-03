@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:context=".addEmployee">
 
         <TextView
@@ -26,15 +26,15 @@
 
         <TextView
             android:id="@+id/textViewFirstName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="76dp"
             android:text="First Name:"
             android:textAlignment="textEnd"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextFirstName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/editTextFirstName" />
 
         <EditText
             android:id="@+id/editTextFirstName"
@@ -51,12 +51,14 @@
 
         <TextView
             android:id="@+id/textViewMiddleName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="7dp"
             android:text="Middle Name:"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextMiddleName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewFirstName" />
 
@@ -72,12 +74,14 @@
 
         <TextView
             android:id="@+id/textViewLastName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
             android:text="Last Name:"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextLastName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewMiddleName" />
 
@@ -93,12 +97,14 @@
 
         <TextView
             android:id="@+id/textViewSsn"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="5dp"
             android:text="Social Security:"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextSsn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewLastName" />
 
@@ -114,14 +120,14 @@
 
         <TextView
             android:id="@+id/textViewPhnnumber"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
             android:text="Phone number:"
             android:textSize="22dp"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextPhnnumber"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewSsn" />
 
@@ -137,12 +143,14 @@
 
         <TextView
             android:id="@+id/textViewAddress"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="3dp"
             android:text="Address:"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextAddress"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPhnnumber" />
 
@@ -158,12 +166,14 @@
 
         <TextView
             android:id="@+id/textViewCity"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="7dp"
             android:text="City:"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextCity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewAddress" />
 
@@ -179,12 +189,14 @@
 
         <TextView
             android:id="@+id/textViewState"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
             android:text="State:"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextState"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewCity" />
 
@@ -200,12 +212,14 @@
 
         <TextView
             android:id="@+id/textViewZip"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="5dp"
             android:text="Zipcode:"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextZip"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewState" />
 
@@ -221,12 +235,14 @@
 
         <TextView
             android:id="@+id/textViewMarital"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="4dp"
             android:text="Marital Status:"
             android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputMarital"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewZip" />
 
@@ -252,12 +268,14 @@
 
         <TextView
             android:id="@+id/textViewDeduct"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:text="Number of deduction:"
-            android:textSize="18dp"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextDeduct"
+            app:layout_constraintEnd_toStartOf="@+id/editTextDeduct"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewMarital" />
 
@@ -265,20 +283,26 @@
             android:id="@+id/editTextDeduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewDeduct"
             app:layout_constraintTop_toBottomOf="@+id/textInputMarital" />
 
         <TextView
             android:id="@+id/textViewAllow"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="23dp"
             android:text="Number of allowances:"
-            android:textSize="16dp"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextAllow"
+            app:layout_constraintEnd_toStartOf="@+id/editTextAllow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewDeduct" />
 
@@ -286,22 +310,25 @@
             android:id="@+id/editTextAllow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDeduct"
-            tools:layout_editor_absoluteX="189dp" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextDeduct" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
             android:layout_weight="1"
             android:text="Frequency of Pay:"
-            android:textSize="18dp"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputFrequency"
+            app:layout_constraintEnd_toStartOf="@+id/textInputFrequency"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewAllow" />
 
@@ -326,25 +353,23 @@
 
 
         <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="104dp"
-            android:layout_marginTop="16dp"
-            android:text="Save"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <Button
             android:id="@+id/buttonExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="110dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:text="Exit"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonSave"
             app:layout_constraintTop_toBottomOf="@+id/textInputFrequency" />
 
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            app:layout_constraintEnd_toStartOf="@+id/buttonExit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buttonExit" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
