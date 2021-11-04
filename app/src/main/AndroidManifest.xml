@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookkeepingKing">
         <activity
-            android:name=".addInvoice"
+            android:name=".AddInvoice"
             android:exported="true"
             android:label="@string/title_activity_add_invoice"
             android:theme="@style/Theme.BookkeepingKing.NoActionBar" />

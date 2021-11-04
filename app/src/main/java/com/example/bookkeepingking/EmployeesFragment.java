@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class EmployeesFragment extends Fragment {
-
+    boolean empIsNew;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,5 +28,12 @@ public class EmployeesFragment extends Fragment {
                 NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_addEmployee);
             }
         });
+        view.findViewById(R.id.buttonEditEmployee).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_editEmployee);
+            }
+        });
     }
+
 }

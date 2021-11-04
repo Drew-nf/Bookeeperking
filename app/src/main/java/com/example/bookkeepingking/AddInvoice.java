@@ -22,10 +22,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bookkeepingking.R;
 import java.util.Calendar;
 
-public class addInvoice extends AppCompatActivity implements View.OnClickListener {
+public class AddInvoice extends AppCompatActivity implements View.OnClickListener {
    private static final String TAG="date";
     //for camera
     Button photo;
@@ -81,7 +80,7 @@ public class addInvoice extends AppCompatActivity implements View.OnClickListene
                 int day=cal.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog=new DatePickerDialog(
-                        addInvoice.this,
+                        AddInvoice.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         DateSetListener,
                         year,month,day

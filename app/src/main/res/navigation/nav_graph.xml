@@ -50,6 +50,9 @@
         <action
             android:id="@+id/action_employeesFragment_to_addEmployee"
             app:destination="@id/addEmployee" />
+        <action
+            android:id="@+id/action_employeesFragment_to_editEmployee"
+            app:destination="@id/editEmployee" />
     </fragment>
     <fragment
         android:id="@+id/invoicesFragment"
@@ -57,6 +60,12 @@
         android:label="fragment_invoices"
         tools:layout="@layout/fragment_invoices" >
 
+        <action
+            android:id="@+id/action_invoicesFragment_to_fragmentInvoiceEditor"
+            app:destination="@id/editInvoiceFragment" />
+        <action
+            android:id="@+id/action_invoicesFragment_to_addInvoiceFragment"
+            app:destination="@id/addInvoiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/payrollFragment"
@@ -78,7 +87,7 @@
     </fragment>
     <fragment
         android:id="@+id/addEmployee"
-        android:name="com.example.bookkeepingking.addEmployee"
+        android:name="com.example.bookkeepingking.AddEmployee"
         android:label="fragment_add_employee"
         tools:layout="@layout/fragment_add_employee" >
         <action
@@ -88,4 +97,30 @@
     <action
         android:id="@+id/action_global_HomeFragment"
         app:destination="@id/HomeFragment" />
+    <fragment
+        android:id="@+id/editInvoiceFragment"
+        android:name="com.example.bookkeepingking.EditInvoiceFragment"
+        android:label="fragment_invoice_editor"
+        tools:layout="@layout/fragment_edit_invoice" >
+        <action
+            android:id="@+id/action_editInvoiceFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editEmployee"
+        android:name="com.example.bookkeepingking.EditEmployee"
+        android:label="EditEmployee" >
+        <action
+            android:id="@+id/action_editEmployee_to_employeesFragment"
+            app:destination="@id/employeesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addInvoiceFragment"
+        android:name="com.example.bookkeepingking.AddInvoiceFragment"
+        android:label="fragment_add_invoice"
+        tools:layout="@layout/fragment_add_invoice" >
+        <action
+            android:id="@+id/action_addInvoiceFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
 </navigation>

@@ -1,14 +1,13 @@
 package com.example.bookkeepingking;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class addEmployee extends Fragment {
+import androidx.fragment.app.Fragment;
+
+public class EditEmployee extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,6 +18,6 @@ public class addEmployee extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_employee, container, false);
+        return inflater.inflate(R.layout.fragment_edit_employee, container, false);
     }
 }

@@ -7,6 +7,7 @@
     <string name="employeesButton">Employees</string>
     <string name="salesTaxButton">Sales Tax</string>
     <string name="payrollButton">Payroll</string>
+
     <!--Payroll screen-->
     <string name="employeeDesc">Employee</string>
     <string name="numOfHrsWrkdDesc">Number of Hours Worked</string>
@@ -27,12 +28,37 @@
     <string name="stateIncomeTax">State Income Tax</string>
     <string name="stateDisabilityInsurance">State Disability Insurance</string>
 
-    <string name="saveButton">Save</string>
-    <string name="closeButton">Close</string>
+    <!--Invoices screen-->
+    <string name="buttonAddInvoice">New Invoice</string>
+    <string name="buttonEditInvoice">Edit/View Invoice</string>
+    <string name="addInvoice">Add Invoice</string>
+    <string name="editInvoice">Edit Invoice</string>
+    <string name="vendorID">Vendor ID:</string>
+    <string name="invoiceDate">Invoice Date:</string>
+    <string name="invoiceNumber">Invoice Number:</string>
+    <string name="item">Item:</string>
+    <string name="glAccount">GL Account:</string>
+    <string name="totalInvoice">Total Invoice</string>
+    <string name="paymentMethod">Payment Method</string>
+    
+    <!--Employees screen-->
+    <string name="addEmployee">Add New Employee</string>
+    <string name="editEmployee">Edit Employee Info</string>
+
+    <!--Sales Tax screen-->
+    <string name="totalMonthlyTaxableRevenue">Total Monthly Taxable Revenue</string>
+    <string name="countyOfSalesTaxRate">County Of Sales TaxRate</string>
+    <string name="calculate">Calculate</string>
+    <string name="totalSalexTax">Total Sales Tax Payment for the month:</string>
+
+    <!--Should find out if this is necessary-->
+    <string name="title_activity_add_invoice">addInvoice</string>
     <!-- Strings used for fragments for navigation -->
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="title_activity_add_invoice">addInvoice</string>
+    <string name="saveButton">Save</string>
+    <string name="closeButton">Close</string>
+    <string name="cancelButton">Cancel</string>
     <string-array name="Employees">
         <item>Evan Johnson</item>
         <item>Fadi Nakkound</item>
