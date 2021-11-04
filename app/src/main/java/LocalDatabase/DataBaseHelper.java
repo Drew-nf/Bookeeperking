@@ -37,7 +37,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableStatment);
 
         createTableStatment = "CREATE TABLE payroll(payroll_id INTEGER PRIMARY KEY AUTOINCREMENT, employee_id INTEGER, check_num TEXT,"+
-                                "paid_on TEXT, pay_start TEXT, pay_end TEXT, hours_work DEMICAL(6,2), total_pay DECIMAL(9,2), net_pay DECIMAL(9,2),"+
+                                "paid_on TEXT, pay_end TEXT, hours_work TEXT, total_pay TEXT, net_pay TEXT,"+
                                 "FOREIGN KEY(employee_id)"+
                                     "REFERENCES employee(employee_id))";
         db.execSQL(createTableStatment);
@@ -61,7 +61,24 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-    public boolean addOne(Employee employee){
+    public boolean addPayroll(Payroll payroll){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("employee_id", payroll.getEmployee_id());
+        cv.put("check_num",payroll.getCheck_num());
+        cv.put("paid_on",payroll.getPaid_on());
+        cv.put("pay_end",payroll.getPay_end());
+        cv.put("hours_work",payroll.getHours_work());
+        cv.put("total_pay",payroll.getTotal_pay());
+        cv.put("net_pay",payroll.getNet_pay());
+        long insert = db.insert("payroll", null,cv);
+        if(insert == -1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public boolean addEmployee(Employee employee){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("bsn_id",employee.getBsn_id());

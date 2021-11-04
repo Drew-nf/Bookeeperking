@@ -1,21 +1,15 @@
 package com.example.bookkeepingking;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Employee;
@@ -30,7 +24,7 @@ public class AddEmployee extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_employee, container, false);
-        Button button = (Button) view.findViewById(R.id.buttonSave);
+        Button button = (Button) view.findViewById(R.id.buttonSave_payroll);
         Context thisContext = container.getContext();
         button.setOnClickListener(new View.OnClickListener()
         {
@@ -57,7 +51,7 @@ public class AddEmployee extends Fragment {
                         0,"weekly", true, true);
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(thisContext);
-                boolean success = dataBaseHelper.addOne(employee);
+                boolean success = dataBaseHelper.addEmployee(employee);
             }
         });
         // Inflate the layout for this fragment
