@@ -46,6 +46,7 @@
     <string name="editEmployee">Edit Employee Info</string>
 
     <!--Sales Tax screen-->
+    <string name="salexTaxTitle">Sales Tax Calculator</string>
     <string name="totalMonthlyTaxableRevenue">Total Monthly Taxable Revenue</string>
     <string name="countyOfSalesTaxRate">County Of Sales TaxRate</string>
     <string name="calculate">Calculate</string>

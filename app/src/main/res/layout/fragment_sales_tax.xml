@@ -8,27 +8,27 @@
     tools:context=".SalesTaxFragment">
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/totalMonthlyTaxableRevenue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/totalMonthlyTaxableRevenue"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName1"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName1"
+        app:layout_constraintBottom_toBottomOf="@+id/editTexttotalMonthlyTaxableRevenue"
+        app:layout_constraintEnd_toStartOf="@+id/editTexttotalMonthlyTaxableRevenue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName1" />
+        app:layout_constraintTop_toTopOf="@+id/editTexttotalMonthlyTaxableRevenue" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/countyOfSalesTaxRate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/countyOfSalesTaxRate"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/spinner5"
-        app:layout_constraintEnd_toEndOf="@+id/textView1"
+        app:layout_constraintEnd_toEndOf="@+id/totalMonthlyTaxableRevenue"
         app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="@+id/textView1"
+        app:layout_constraintStart_toStartOf="@+id/totalMonthlyTaxableRevenue"
         app:layout_constraintTop_toTopOf="@+id/spinner5" />
 
     <Button
@@ -36,57 +36,65 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/calculate"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTotalSalexTax"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner5"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner5" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/totalSalexTax"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/totalSalexTax"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTotalSalexTax"
+        app:layout_constraintEnd_toEndOf="@+id/countyOfSalesTaxRate"
+        app:layout_constraintStart_toStartOf="@+id/countyOfSalesTaxRate"
+        app:layout_constraintTop_toTopOf="@+id/editTextTotalSalexTax" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName1"
+        android:id="@+id/editTexttotalMonthlyTaxableRevenue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="64dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/spinner5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/totalMonthlyTaxableRevenue"
+        app:layout_constraintTop_toBottomOf="@+id/salexTaxTitle" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editTextTotalSalexTax"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/spinner5"
-        app:layout_constraintStart_toStartOf="@+id/spinner5"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="@+id/spinner5" />
 
     <Spinner
         android:id="@+id/spinner5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName1"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName1"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1" />
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/editTexttotalMonthlyTaxableRevenue"
+        app:layout_constraintStart_toStartOf="@+id/editTexttotalMonthlyTaxableRevenue"
+        app:layout_constraintTop_toBottomOf="@+id/editTexttotalMonthlyTaxableRevenue" />
+
+    <TextView
+        android:id="@+id/salexTaxTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/salexTaxTitle"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

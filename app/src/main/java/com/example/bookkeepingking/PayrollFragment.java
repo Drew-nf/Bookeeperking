@@ -5,16 +5,15 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import LocalDatabase.DataBaseHelper;
-import LocalDatabase.Employee;
 import LocalDatabase.Payroll;
 
 public class PayrollFragment extends Fragment {
@@ -34,7 +33,7 @@ public class PayrollFragment extends Fragment {
                 Payroll payroll;
                 try{
                     payroll = new Payroll(-1,1, getString(getView().findViewById(R.id.checkNumInput)),
-                            getString(getView().findViewById(R.id.editTextDate)),
+                            getString(getView().findViewById(R.id.checkDateInput)),
                             getString(getView().findViewById(R.id.endingPeriodDateInput)),
                             getString(getView().findViewById(R.id.numberOfHoursWorkedInput)),
                             getString(getView().findViewById(R.id.grossAmtInput)),
@@ -53,6 +52,14 @@ public class PayrollFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        view.findViewById(R.id.buttonClose).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                NavHostFragment.findNavController(PayrollFragment.this).
+                        navigate(R.id.action_payrollFragment_to_HomeFragment);
+            }
+        });
 
     }
     public String getString() {

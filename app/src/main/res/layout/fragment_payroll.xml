@@ -11,87 +11,82 @@
         android:id="@+id/federalIncomeTaxInput"
         android:layout_width="80dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/federalIncomeTax" />
+        app:layout_constraintStart_toStartOf="@+id/federalIncomeTax"
+        app:layout_constraintTop_toBottomOf="@+id/federalIncomeTax" />
 
     <EditText
         android:id="@+id/stateIncomeTaxInput"
         android:layout_width="80dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicareInput" />
+        app:layout_constraintStart_toStartOf="@+id/stateIncomeTax"
+        app:layout_constraintTop_toBottomOf="@+id/stateIncomeTax" />
 
     <EditText
         android:id="@+id/stateDisabilityInsuranceInput"
         android:layout_width="80dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stateIncomeTaxInput" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stateDisabilityInsurance" />
 
     <TextView
         android:id="@+id/stateDisabilityInsurance"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
         android:text="@string/stateDisabilityInsurance"
-        app:layout_constraintEnd_toStartOf="@+id/stateDisabilityInsuranceInput"
-        app:layout_constraintStart_toEndOf="@+id/buttonClose"
-        app:layout_constraintTop_toBottomOf="@+id/stateIncomeTaxInput" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicareInput" />
 
     <TextView
         android:id="@+id/federalIncomeTax"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/federalIncomeTax"
-        app:layout_constraintEnd_toStartOf="@+id/federalIncomeTaxInput"
-        app:layout_constraintStart_toStartOf="@+id/socialSecurity"
-        app:layout_constraintTop_toTopOf="@+id/deductions" />
+        app:layout_constraintEnd_toStartOf="@+id/socialSecurity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deductions" />
 
     <EditText
         android:id="@+id/socialSecurityInput"
         android:layout_width="80dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/federalIncomeTaxInput" />
+        app:layout_constraintStart_toStartOf="@+id/socialSecurity"
+        app:layout_constraintTop_toBottomOf="@+id/socialSecurity" />
 
     <TextView
         android:id="@+id/socialSecurity"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/socialSecurity"
-        app:layout_constraintEnd_toStartOf="@+id/socialSecurityInput"
-        app:layout_constraintStart_toStartOf="@+id/medicare"
-        app:layout_constraintTop_toTopOf="@+id/socialSecurityInput" />
+        app:layout_constraintBottom_toBottomOf="@+id/federalIncomeTax"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/federalIncomeTax"
+        app:layout_constraintTop_toTopOf="@+id/federalIncomeTax" />
 
     <TextView
         android:id="@+id/empName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
         android:text="@string/empName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPayrollCalc" />
+        app:layout_constraintStart_toStartOf="@+id/empNameInput"
+        app:layout_constraintTop_toTopOf="@+id/checkNum" />
 
     <EditText
         android:id="@+id/empNameInput"
         android:layout_width="95dp"
         android:layout_height="0dp"
-        android:layout_marginStart="20dp"
         android:inputType="textPersonName"
         android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkNumInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/empName" />
 
@@ -99,31 +94,31 @@
         android:id="@+id/grossAmtInput"
         android:layout_width="95dp"
         android:layout_height="0dp"
-        android:layout_marginStart="20dp"
         android:inputType="text"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/empNameInput"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="@+id/empNameInput"
         app:layout_constraintTop_toBottomOf="@+id/grossAmt" />
 
     <TextView
         android:id="@+id/grossAmt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
         android:text="@string/grossAmt"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/grossAmtInput"
+        app:layout_constraintStart_toStartOf="@+id/grossAmtInput"
         app:layout_constraintTop_toBottomOf="@+id/empNameInput" />
 
     <TextView
         android:id="@+id/employee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="24dp"
         android:text="@string/employeeDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/employeeSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/employeeSpinner" />
 
     <Spinner
         android:id="@+id/employeeSpinner"
@@ -137,41 +132,40 @@
         android:id="@+id/numberOfHoursWorked"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="5dp"
         android:text="@string/numOfHrsWrkdDesc"
         app:layout_constraintBottom_toBottomOf="@+id/numberOfHoursWorkedInput"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/employee"
+        app:layout_constraintTop_toTopOf="@+id/numberOfHoursWorkedInput" />
 
     <TextView
         android:id="@+id/endingPeriodDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginBottom="5dp"
         android:text="@string/endPerDate"
         app:layout_constraintBottom_toBottomOf="@+id/endingPeriodDateInput"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/checkDate"
+        app:layout_constraintTop_toBottomOf="@+id/checkDateInput" />
 
     <TextView
         android:id="@+id/checkDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginBottom="5dp"
         android:text="@string/checkDtDesc"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/checkDateInput"
+        app:layout_constraintStart_toStartOf="@+id/hourlyPay"
+        app:layout_constraintTop_toBottomOf="@+id/hourlyPayInput" />
 
     <TextView
         android:id="@+id/hourlyPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginBottom="5dp"
         android:text="@string/hrlPayDesc"
         app:layout_constraintBottom_toBottomOf="@+id/hourlyPayInput"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/numberOfHoursWorked"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfHoursWorkedInput" />
 
     <Button
         android:id="@+id/buttonPayrollCalc"
@@ -187,10 +181,10 @@
         android:id="@+id/numberOfHoursWorkedInput"
         android:layout_width="178dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:inputType="text"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/hourlyPayInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/employeeSpinner" />
 
@@ -201,6 +195,7 @@
         android:layout_marginEnd="12dp"
         android:inputType="text"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/checkDateInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberOfHoursWorkedInput" />
 
@@ -208,18 +203,19 @@
         android:id="@+id/checkNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:text="@string/checkNum"
         app:layout_constraintStart_toStartOf="@+id/checkNumInput"
         app:layout_constraintTop_toBottomOf="@+id/buttonPayrollCalc" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/checkDateInput"
         android:layout_width="178dp"
         android:layout_height="0dp"
         android:layout_marginEnd="12dp"
         android:inputType="date|text"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/endingPeriodDateInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hourlyPayInput" />
 
@@ -231,34 +227,35 @@
         android:inputType="date|text"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/checkDateInput" />
 
     <EditText
         android:id="@+id/checkNumInput"
         android:layout_width="95dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="110dp"
         android:inputType="text"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/empNameInput"
         app:layout_constraintTop_toBottomOf="@+id/checkNum" />
 
     <EditText
         android:id="@+id/netPayInput"
         android:layout_width="95dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="15dp"
         android:inputType="text"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/checkNumInput"
+        app:layout_constraintStart_toStartOf="@+id/checkNumInput"
         app:layout_constraintTop_toBottomOf="@+id/netPay" />
 
     <TextView
         android:id="@+id/netPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="@string/netPay"
+        app:layout_constraintBottom_toTopOf="@+id/netPayInput"
         app:layout_constraintStart_toStartOf="@+id/netPayInput"
         app:layout_constraintTop_toBottomOf="@+id/checkNumInput" />
 
@@ -267,7 +264,7 @@
         android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="@string/deductions"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -278,8 +275,8 @@
         android:id="@+id/buttonSave_payroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/saveButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -289,37 +286,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginBottom="20dp"
         android:text="@string/closeButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonSave_payroll" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSave_payroll"
+        app:layout_constraintStart_toEndOf="@+id/buttonSave_payroll"
+        app:layout_constraintTop_toTopOf="@+id/buttonSave_payroll" />
 
     <TextView
         android:id="@+id/medicare"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/medicare"
-        app:layout_constraintEnd_toStartOf="@+id/medicareInput"
-        app:layout_constraintStart_toStartOf="@+id/stateIncomeTax"
-        app:layout_constraintTop_toBottomOf="@+id/socialSecurityInput" />
+        app:layout_constraintStart_toStartOf="@+id/federalIncomeTax"
+        app:layout_constraintTop_toBottomOf="@+id/federalIncomeTaxInput" />
 
     <EditText
         android:id="@+id/medicareInput"
         android:layout_width="80dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/socialSecurityInput" />
+        app:layout_constraintStart_toStartOf="@+id/medicare"
+        app:layout_constraintTop_toBottomOf="@+id/medicare" />
 
     <TextView
         android:id="@+id/stateIncomeTax"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/stateIncomeTax"
-        app:layout_constraintEnd_toStartOf="@+id/stateIncomeTaxInput"
-        app:layout_constraintStart_toStartOf="@+id/stateDisabilityInsurance"
-        app:layout_constraintTop_toTopOf="@+id/stateIncomeTaxInput" />
+        app:layout_constraintBottom_toBottomOf="@+id/medicare"
+        app:layout_constraintStart_toStartOf="@+id/socialSecurity"
+        app:layout_constraintTop_toTopOf="@+id/medicare" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
