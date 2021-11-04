@@ -10,18 +10,19 @@
         android:id="@+id/spinner4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCancelInvoiceEditor"
         app:layout_constraintEnd_toEndOf="@+id/spinner3"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/spinner2"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner3"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
@@ -29,7 +30,7 @@
         android:id="@+id/spinner3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/spinner2"
         app:layout_constraintStart_toStartOf="@+id/spinner2"
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
@@ -38,8 +39,9 @@
         android:id="@+id/addInvoice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/editInvoice"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,20 +51,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
         android:text="@string/vendorID"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner"
         app:layout_constraintEnd_toStartOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addInvoice" />
+        app:layout_constraintTop_toTopOf="@+id/spinner" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPlusVenorID"
         app:layout_constraintStart_toEndOf="@+id/vendorID"
         app:layout_constraintTop_toBottomOf="@+id/addInvoice" />
 
@@ -74,17 +75,19 @@
         android:text="@string/invoiceDate"
         app:layout_constraintBottom_toBottomOf="@+id/editTextDate2"
         app:layout_constraintEnd_toStartOf="@+id/editTextDate2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/vendorID"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toTopOf="@+id/editTextDate2" />
 
     <EditText
         android:id="@+id/editTextDate2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/spinner"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
@@ -95,16 +98,16 @@
         android:text="@string/invoiceNumber"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintStart_toStartOf="@+id/invoiceDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
         app:layout_constraintStart_toStartOf="@+id/editTextDate2"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
 
@@ -149,30 +152,83 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/saveButton"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCancelInvoiceEditor"
         app:layout_constraintEnd_toStartOf="@+id/buttonCancelInvoiceEditor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/paymentMethod"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintTop_toTopOf="@+id/buttonCancelInvoiceEditor" />
 
     <Button
         android:id="@+id/buttonCancelInvoiceEditor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:text="@string/cancelButton"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonSaveInvoiceEditor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonSaveInvoiceEditor"
-        app:layout_constraintTop_toTopOf="@+id/buttonSaveInvoiceEditor" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
 
     <EditText
         android:id="@+id/editTextNumberDecimal"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/spinner4"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/spinner3"
         app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+
+    <Button
+        android:id="@+id/buttonPlusVenorID"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="+"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="@+id/spinner" />
+
+    <Button
+        android:id="@+id/buttonPlusItem"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:text="+"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonPlusVenorID"
+        app:layout_constraintTop_toTopOf="@+id/spinner2" />
+
+    <Button
+        android:id="@+id/buttonPlusGLAccount"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:text="+"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner3"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPlusItem"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonPlusItem"
+        app:layout_constraintTop_toTopOf="@+id/spinner3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonPlusGLAccount2"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:text="+"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner4"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPlusItem"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonPlusItem"
+        app:layout_constraintTop_toTopOf="@+id/spinner4"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
