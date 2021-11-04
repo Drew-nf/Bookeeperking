@@ -1,5 +1,6 @@
-package com.example.bookkeepingking;
+package LocalDatabase;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -29,7 +30,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableStatment);
 
         createTableStatment = "CREATE TABLE employee(employee_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, f_name TEXT,"+
-                                "l_name TEXT, address TEXT, state TEXT, city TEXT, zip TEXT, phone TEXT, ssn TEXT, pay DECIMAL(6,2),"+
+                                "l_name TEXT, address TEXT, state TEXT, city TEXT, zip TEXT, phone TEXT, ssn TEXT, "+
                                 "allowances INTEGER, p_rotation TEXT, is_married BOOL, active BOOL,"+
                                 "FOREIGN KEY(bsn_id)" +
                                     "REFERENCES bsn_id(bsn_id))";
@@ -59,6 +60,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+    public boolean addOne(Employee employee){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("bsn_id",employee.getBsn_id());
+        cv.put("f_name", employee.getF_name());
+        cv.put("l_name", employee.getL_name());
+        cv.put("address", employee.getAddress());
+        cv.put("state", employee.getState());
+        cv.put("city", employee.getCity());
+        cv.put("zip", employee.getZip());
+        cv.put("phone", employee.getPhone());
+        cv.put("ssn", employee.getSsn());
+        cv.put("allowances", employee.getAllowances());
+        cv.put("p_rotation", employee.getAllowances());
+        cv.put("is_married", employee.isIs_married());
+        cv.put("active", employee.isActive());
+        long insert = db.insert("employee", null,cv);
+        if(insert == -1){
+            return false;
+        }else{
+            return true;
+        }
     }
 }
 
