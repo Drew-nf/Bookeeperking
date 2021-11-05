@@ -272,7 +272,7 @@
         app:layout_constraintTop_toBottomOf="@+id/grossAmtInput" />
 
     <Button
-        android:id="@+id/buttonSave_payroll"
+        android:id="@+id/buttonSavePayroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -282,14 +282,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonClose"
+        android:id="@+id/buttonCancelPayroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="@string/closeButton"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonSave_payroll"
-        app:layout_constraintStart_toEndOf="@+id/buttonSave_payroll"
-        app:layout_constraintTop_toTopOf="@+id/buttonSave_payroll" />
+        android:text="@string/cancelButton"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSavePayroll"
+        app:layout_constraintStart_toEndOf="@+id/buttonSavePayroll"
+        app:layout_constraintTop_toTopOf="@+id/buttonSavePayroll" />
 
     <TextView
         android:id="@+id/medicare"

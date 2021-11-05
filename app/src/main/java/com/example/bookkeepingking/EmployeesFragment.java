@@ -25,13 +25,13 @@ public class EmployeesFragment extends Fragment {
         view.findViewById(R.id.buttonAddEmployee).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_addEmployee);
+                NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_addEmployeeFragment);
             }
         });
         view.findViewById(R.id.buttonEditEmployee).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_editEmployee);
+                NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_editEmployeeFragment);
             }
         });
     }

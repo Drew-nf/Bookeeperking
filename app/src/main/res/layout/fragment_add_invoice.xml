@@ -10,7 +10,7 @@
         android:id="@+id/spinner4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCancelInvoiceEditor"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCancelInvoiceAdd"
         app:layout_constraintEnd_toEndOf="@+id/spinner3"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
@@ -149,24 +149,24 @@
         app:layout_constraintTop_toTopOf="@+id/spinner4" />
 
     <Button
-        android:id="@+id/buttonSaveInvoiceEditor"
+        android:id="@+id/buttonSaveInvoiceAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/saveButton"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonCancelInvoiceEditor"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCancelInvoiceEditor"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCancelInvoiceAdd"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCancelInvoiceAdd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buttonCancelInvoiceEditor" />
+        app:layout_constraintTop_toTopOf="@+id/buttonCancelInvoiceAdd" />
 
     <Button
-        android:id="@+id/buttonCancelInvoiceEditor"
+        android:id="@+id/buttonCancelInvoiceAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="@string/cancelButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonSaveInvoiceEditor"
+        app:layout_constraintStart_toEndOf="@+id/buttonSaveInvoiceAdd"
         app:layout_constraintTop_toBottomOf="@+id/spinner4" />
 
     <EditText

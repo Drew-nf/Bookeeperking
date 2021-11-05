@@ -23,7 +23,7 @@ public class PayrollFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_payroll, container, false);
-        Button button = (Button) view.findViewById(R.id.buttonSave_payroll);
+        Button button = (Button) view.findViewById(R.id.buttonSavePayroll);
         Context thisContext = container.getContext();
         button.setOnClickListener(new View.OnClickListener()
         {
@@ -53,7 +53,14 @@ public class PayrollFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.buttonClose).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.buttonCancelPayroll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                NavHostFragment.findNavController(PayrollFragment.this).
+                        navigate(R.id.action_payrollFragment_to_HomeFragment);
+            }
+        });
+        view.findViewById(R.id.buttonSavePayroll).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 NavHostFragment.findNavController(PayrollFragment.this).

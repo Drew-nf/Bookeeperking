@@ -25,7 +25,14 @@ public class EditInvoiceFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.buttonSaveInvoiceEditor).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.buttonCancelInvoiceEdit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(EditInvoiceFragment.this).
+                        navigate(R.id.action_editInvoiceFragment_to_HomeFragment);
+            }
+        });
+        view.findViewById(R.id.buttonSaveInvoiceEdit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(EditInvoiceFragment.this).

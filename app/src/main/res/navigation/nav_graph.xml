@@ -48,11 +48,11 @@
             android:id="@+id/action_employeesFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
         <action
-            android:id="@+id/action_employeesFragment_to_addEmployee"
-            app:destination="@id/addEmployee" />
+            android:id="@+id/action_employeesFragment_to_addEmployeeFragment"
+            app:destination="@id/addEmployeeFragment" />
         <action
-            android:id="@+id/action_employeesFragment_to_editEmployee"
-            app:destination="@id/editEmployee" />
+            android:id="@+id/action_employeesFragment_to_editEmployeeFragment"
+            app:destination="@id/editEmployeeFragment" />
     </fragment>
     <fragment
         android:id="@+id/invoicesFragment"
@@ -86,13 +86,13 @@
             app:destination="@id/HomeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/addEmployee"
-        android:name="com.example.bookkeepingking.AddEmployee"
+        android:id="@+id/addEmployeeFragment"
+        android:name="com.example.bookkeepingking.AddEmployeeFragment"
         android:label="fragment_add_employee"
         tools:layout="@layout/fragment_add_employee" >
         <action
-            android:id="@+id/action_addEmployee_to_employeesFragment"
-            app:destination="@id/employeesFragment" />
+            android:id="@+id/action_addEmployeeFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
     <action
         android:id="@+id/action_global_HomeFragment"
@@ -107,12 +107,13 @@
             app:destination="@id/HomeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/editEmployee"
-        android:name="com.example.bookkeepingking.EditEmployee"
-        android:label="EditEmployee" >
+        android:id="@+id/editEmployeeFragment"
+        android:name="com.example.bookkeepingking.EditEmployeeFragment"
+        android:label="EditEmployeeFragment"
+        tools:layout="@layout/fragment_edit_employee">
         <action
-            android:id="@+id/action_editEmployee_to_employeesFragment"
-            app:destination="@id/employeesFragment" />
+            android:id="@+id/action_editEmployeeFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addInvoiceFragment"

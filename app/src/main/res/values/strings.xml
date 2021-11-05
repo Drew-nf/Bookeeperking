@@ -58,7 +58,6 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="saveButton">Save</string>
-    <string name="closeButton">Close</string>
     <string name="cancelButton">Cancel</string>
     <string-array name="Employees">
         <item>Evan Johnson</item>

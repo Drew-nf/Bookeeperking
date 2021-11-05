@@ -11,14 +11,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddEmployee">
+        tools:context=".AddEmployeeFragment">
 
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Add Employee"
+            android:text="@string/addEmployee"
             android:textSize="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -353,23 +353,23 @@
 
 
         <Button
-            android:id="@+id/buttonExit"
+            android:id="@+id/buttonCancelEmpAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Exit"
+            android:text="@string/cancelButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonSave_payroll"
+            app:layout_constraintStart_toEndOf="@+id/buttonSaveEmpAdd"
             app:layout_constraintTop_toBottomOf="@+id/textInputFrequency" />
 
         <Button
-            android:id="@+id/buttonSave_payroll"
+            android:id="@+id/buttonSaveEmpAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
-            app:layout_constraintEnd_toStartOf="@+id/buttonExit"
+            android:text="@string/saveButton"
+            app:layout_constraintEnd_toStartOf="@+id/buttonCancelEmpAdd"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/buttonExit" />
+            app:layout_constraintTop_toTopOf="@+id/buttonCancelEmpAdd" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
