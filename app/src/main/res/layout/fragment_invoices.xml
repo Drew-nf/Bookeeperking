@@ -8,18 +8,6 @@
     tools:context=".InvoicesFragment">
 
     <Button
-        android:id="@+id/buttonAddInvoicePhoto"
-        android:layout_width="229dp"
-        android:layout_height="80dp"
-        android:text="@string/buttonAddInvoice"
-        android:textSize="20sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/buttonEditInvoice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/buttonAddInvoice"
         android:layout_width="229dp"
         android:layout_height="80dp"

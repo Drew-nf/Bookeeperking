@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class AddInvoice extends AppCompatActivity implements View.OnClickListener {
+public class AddInvoice extends AppCompatActivity implements View.OnClickListener{
    private static final String TAG="date";
     //for camera
     Button photo;

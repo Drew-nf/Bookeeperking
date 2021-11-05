@@ -10,7 +10,7 @@
         android:id="@+id/spinner4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCancelInvoiceEdit"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUploadInvoice"
         app:layout_constraintEnd_toEndOf="@+id/spinner3"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
@@ -162,12 +162,11 @@
         android:id="@+id/buttonCancelInvoiceEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:text="@string/cancelButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonSaveInvoiceEdit"
-        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonUploadInvoice" />
 
     <EditText
         android:id="@+id/editTextNumberDecimal"
@@ -232,4 +231,23 @@
         app:layout_constraintTop_toTopOf="@+id/spinner4"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/uploadInvoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/uploadInvoice"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonUploadInvoice"
+        app:layout_constraintStart_toStartOf="@+id/paymentMethod"
+        app:layout_constraintTop_toTopOf="@+id/buttonUploadInvoice" />
+
+    <Button
+        android:id="@+id/buttonUploadInvoice"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:text="+"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCancelInvoiceEdit"
+        app:layout_constraintStart_toEndOf="@+id/uploadInvoice"
+        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

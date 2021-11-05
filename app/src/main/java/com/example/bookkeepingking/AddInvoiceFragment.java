@@ -1,5 +1,6 @@
 package com.example.bookkeepingking;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,13 @@ public class AddInvoiceFragment extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(AddInvoiceFragment.this).
                         navigate(R.id.action_addInvoiceFragment_to_HomeFragment);
+            }
+        });
+        view.findViewById(R.id.buttonUploadInvoice).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent in= new Intent(getActivity(), AddInvoice.class);
+                startActivity(in);
             }
         });
     }

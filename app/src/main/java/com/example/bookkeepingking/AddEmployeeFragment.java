@@ -61,13 +61,6 @@ public class AddEmployeeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.buttonSaveEmpAdd).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(AddEmployeeFragment.this).
-                        navigate(R.id.action_addEmployeeFragment_to_HomeFragment);
-            }
-        });
         view.findViewById(R.id.buttonCancelEmpAdd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

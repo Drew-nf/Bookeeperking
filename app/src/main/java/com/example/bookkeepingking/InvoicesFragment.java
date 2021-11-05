@@ -19,15 +19,6 @@ public class InvoicesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_invoices, container, false);
-
-        Button add = (Button) view.findViewById(R.id.buttonAddInvoicePhoto);
-        add.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent in= new Intent(getActivity(), AddInvoice.class);
-                startActivity(in);
-            }
-        });
         return view;
     }
 

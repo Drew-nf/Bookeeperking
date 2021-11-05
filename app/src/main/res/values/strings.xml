@@ -40,7 +40,7 @@
     <string name="glAccount">GL Account:</string>
     <string name="totalInvoice">Total Invoice</string>
     <string name="paymentMethod">Payment Method</string>
-    
+
     <!--Employees screen-->
     <string name="addEmployee">Add New Employee</string>
     <string name="editEmployee">Edit Employee Info</string>
@@ -59,10 +59,13 @@
     <string name="previous">Previous</string>
     <string name="saveButton">Save</string>
     <string name="cancelButton">Cancel</string>
+    <string name="uploadInvoice">Upload Invoice</string>
     <string-array name="Employees">
         <item>Evan Johnson</item>
         <item>Fadi Nakkound</item>
         <item>Drew Finnegan</item>
         <item>Ken Ryan</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
