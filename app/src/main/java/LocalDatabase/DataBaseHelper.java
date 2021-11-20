@@ -48,7 +48,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableStatment);
 
         createTableStatment = "CREATE TABLE invoice(invoice_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, vendor_id INTEGER, invoice_num TEXT,"+
-                                "item TEXT, description TEXT, amount DECIMAL(9,2), i_date TEXT, photo BLOB,"+
+                                "item TEXT, description TEXT, amount TEXT, i_date TEXT,"+
                                 "FOREIGN KEY(bsn_id)"+
                                     "REFERENCES bsn_id(bsn_id),"+
                                 "FOREIGN KEY(vendor_id)"+
@@ -95,6 +95,23 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("is_married", employee.isIs_married());
         cv.put("active", employee.isActive());
         long insert = db.insert("employee", null,cv);
+        if(insert == -1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public boolean addInvoice(Invoice invoice){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("bsn_id",invoice.getBsn_id());
+        cv.put("vendor_id",invoice.getVendor_id());
+        cv.put("invoice_num",invoice.getInvoice_num());
+        cv.put("item",invoice.getItem());
+        cv.put("description",invoice.getDescription());
+        cv.put("amount",invoice.getAmount());
+        cv.put("i_date", invoice.getI_date());
+        long insert = db.insert("invoice", null,cv);
         if(insert == -1){
             return false;
         }else{

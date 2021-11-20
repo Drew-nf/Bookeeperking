@@ -13,8 +13,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonUploadInvoice"
         app:layout_constraintEnd_toEndOf="@+id/spinner3"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+        app:layout_constraintStart_toStartOf="@+id/editTextInvoiceTotal"
+        app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceTotal" />
 
     <Spinner
         android:id="@+id/spinner2"
@@ -23,14 +23,14 @@
         app:layout_constraintBottom_toTopOf="@+id/spinner3"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/editTextInvoiceNum"
+        app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceNum" />
 
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/editTextInvoiceTotal"
         app:layout_constraintEnd_toEndOf="@+id/spinner2"
         app:layout_constraintStart_toStartOf="@+id/spinner2"
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
@@ -63,7 +63,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate2"
+        app:layout_constraintBottom_toTopOf="@+id/editTextInvoiceDate"
         app:layout_constraintEnd_toStartOf="@+id/buttonPlusVenorID"
         app:layout_constraintStart_toEndOf="@+id/vendorID"
         app:layout_constraintTop_toBottomOf="@+id/addInvoice" />
@@ -74,19 +74,19 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:text="@string/invoiceDate"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextDate2"
-        app:layout_constraintEnd_toStartOf="@+id/editTextDate2"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextInvoiceDate"
+        app:layout_constraintEnd_toStartOf="@+id/editTextInvoiceDate"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/vendorID"
-        app:layout_constraintTop_toTopOf="@+id/editTextDate2" />
+        app:layout_constraintTop_toTopOf="@+id/editTextInvoiceDate" />
 
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/editTextInvoiceDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/editTextInvoiceNum"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/spinner"
@@ -97,20 +97,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/invoiceNumber"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextInvoiceNum"
         app:layout_constraintStart_toStartOf="@+id/invoiceDate"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toTopOf="@+id/editTextInvoiceNum" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextInvoiceNum"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/spinner2"
-        app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintStart_toStartOf="@+id/editTextDate2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextInvoiceDate"
+        app:layout_constraintStart_toStartOf="@+id/editTextInvoiceDate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceDate" />
 
     <TextView
         android:id="@+id/item"
@@ -135,9 +135,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/totalInvoice"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextInvoiceTotal"
         app:layout_constraintStart_toStartOf="@+id/glAccount"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal" />
+        app:layout_constraintTop_toTopOf="@+id/editTextInvoiceTotal" />
 
     <TextView
         android:id="@+id/paymentMethod"
@@ -180,13 +180,13 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner4" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/editTextInvoiceTotal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/spinner4"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editTextInvoiceNum"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/spinner3"
         app:layout_constraintTop_toBottomOf="@+id/spinner3" />

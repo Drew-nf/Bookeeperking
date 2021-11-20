@@ -70,9 +70,9 @@ public class AddEmployeeFragment extends Fragment {
         });
     }
 
-    public String getString() {
+    /*public String getString() {
         return getString();
-    }
+    }*/
 
     public String getString(EditText e){
         String k = e.getText().toString();
