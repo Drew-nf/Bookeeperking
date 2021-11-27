@@ -2,10 +2,14 @@ package LocalDatabase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -72,6 +76,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("total_pay",payroll.getTotal_pay());
         cv.put("net_pay",payroll.getNet_pay());
         long insert = db.insert("payroll", null,cv);
+        db.close();
         if(insert == -1){
             return false;
         }else{
@@ -95,6 +100,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("is_married", employee.isIs_married());
         cv.put("active", employee.isActive());
         long insert = db.insert("employee", null,cv);
+        db.close();
         if(insert == -1){
             return false;
         }else{
@@ -112,11 +118,47 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("amount",invoice.getAmount());
         cv.put("i_date", invoice.getI_date());
         long insert = db.insert("invoice", null,cv);
+        db.close();
         if(insert == -1){
             return false;
         }else{
             return true;
         }
+    }
+
+    public List<Employee> getAllEmployee(){
+        List<Employee> returnList= new ArrayList<>();
+        String queryString = "SELECT * FROM employee";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString,null);
+        if(cursor.moveToFirst()){
+            do{
+                int employee_id=cursor.getInt(0);
+                int bsn_id=cursor.getInt(1);
+                String f_name=cursor.getString(2);
+                String l_name=cursor.getString(3);
+                String address=cursor.getString(4);
+                String state=cursor.getString(5);
+                String city= cursor.getString(6);
+                String zip= cursor.getString(7);
+                String phone= cursor.getString(8);
+                String ssn= cursor.getString(9);
+                int allowances= cursor.getInt(10);
+                String p_rotation = cursor.getString(11);
+                boolean is_married=cursor.getInt(12)== 1? true:false;
+                boolean active=cursor.getInt(13)==1?true:false;
+
+                Employee newEmployee = new Employee(employee_id,bsn_id,f_name,l_name,address,state,
+                        city,zip,phone,ssn,allowances,p_rotation,is_married,active);
+                returnList.add(newEmployee);
+            }while(cursor.moveToNext());
+        }
+        else{
+            //failure. do not add anything to list.
+        }
+        cursor.close();
+        db.close();
+        return returnList;
     }
 }
 
