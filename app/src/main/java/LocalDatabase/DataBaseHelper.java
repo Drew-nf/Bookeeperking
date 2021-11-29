@@ -160,5 +160,56 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.close();
         return returnList;
     }
+
+    public Employee getEmployee(int id) {
+        String queryString = "SELECT * FROM employee WHERE employee_id = " + id;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+        if (cursor.moveToFirst()) {int employee_id=cursor.getInt(0);
+            int bsn_id=cursor.getInt(1);
+            String f_name=cursor.getString(2);
+            String l_name=cursor.getString(3);
+            String address=cursor.getString(4);
+            String state=cursor.getString(5);
+            String city= cursor.getString(6);
+            String zip= cursor.getString(7);
+            String phone= cursor.getString(8);
+            String ssn= cursor.getString(9);
+            int allowances= cursor.getInt(10);
+            String p_rotation = cursor.getString(11);
+            boolean is_married=cursor.getInt(12)== 1? true:false;
+            boolean active=cursor.getInt(13)==1?true:false;
+
+            Employee newEmployee = new Employee(employee_id,bsn_id,f_name,l_name,address,state,
+                    city,zip,phone,ssn,allowances,p_rotation,is_married,active);
+            cursor.close();
+            db.close();
+            return newEmployee;
+
+        }
+        else{
+            int employee_id = 666;
+            int bsn_id=666;
+            String f_name="error";
+            String l_name="error";
+            String address="error";
+            String state="error";
+            String city= "error";
+            String zip= "error";
+            String phone= "error";
+            String ssn= "error";
+            int allowances= 0;
+            String p_rotation = "error";
+            boolean is_married=false;
+            boolean active=false;
+
+            Employee newEmployee = new Employee(employee_id,bsn_id,f_name,l_name,address,state,
+                    city,zip,phone,ssn,allowances,p_rotation,is_married,active);
+            cursor.close();
+            db.close();
+            return newEmployee;
+        }
+
+    }
 }
 

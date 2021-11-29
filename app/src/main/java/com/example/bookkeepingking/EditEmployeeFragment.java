@@ -31,6 +31,28 @@ public class EditEmployeeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //populate the edit text boxes
+        //requires employee id number
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+        Employee employee = dataBaseHelper.getEmployee(3);
+        EditText textBox = (EditText) getView().findViewById(R.id.editTextFirstName);
+        textBox.setText(employee.getF_name());
+        textBox = (EditText) getView().findViewById(R.id.editTextLastName);
+        textBox.setText(employee.getL_name());
+        textBox = (EditText) getView().findViewById(R.id.editTextSsn);
+        textBox.setText(employee.getSsn());
+        textBox = (EditText) getView().findViewById(R.id.editTextPhnnumber);
+        textBox.setText(employee.getPhone());
+        textBox = (EditText) getView().findViewById(R.id.editTextAddress);
+        textBox.setText(employee.getAddress());
+        textBox = (EditText) getView().findViewById(R.id.editTextCity);
+        textBox.setText(employee.getCity());
+        textBox = (EditText) getView().findViewById(R.id.editTextState);
+        textBox.setText(employee.getState());
+        textBox = (EditText) getView().findViewById(R.id.editTextZip);
+        textBox.setText(employee.getZip());
+        textBox = (EditText) getView().findViewById(R.id.editTextAllow);
+        textBox.setText(String.valueOf(employee.getAllowances()));
             //create database object
         //DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
             //create list of all employees in database
