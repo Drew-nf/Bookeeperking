@@ -40,14 +40,14 @@ public class AddInvoiceFragment extends Fragment {
             {
                 Invoice invoice;
                 try{
-                    invoice = new Invoice(-1,1,1, getString(getView().findViewById(R.id.editTextInvoiceNum)),
-                            " ",
-                            " ",
+                    invoice = new Invoice(-1,1,1,1,
                             getString(getView().findViewById(R.id.editTextInvoiceNum)),
+                            " ",
+                            getString(getView().findViewById(R.id.editTextInvoiceTotal)),
                             getString(getView().findViewById(R.id.editTextInvoiceDate))
                             );
                 }catch(Exception e){
-                    invoice = new Invoice(-1,1,1, "error",
+                    invoice = new Invoice(-1,1,1, 1,
                             "error","error","error","error");
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());

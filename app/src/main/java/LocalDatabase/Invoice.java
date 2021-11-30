@@ -3,21 +3,21 @@ package LocalDatabase;
 public class Invoice {
     private int invoice_id;
     private int bsn_id;
+    private int gL;
     private int vendor_id;
     private String invoice_num;
     private String item;
-    private String description;
     private String amount;
     private String i_date;
 
-    public Invoice(int invoice_id,int bsn_id,int vendor_id,String invoice_num,String item,
-                   String description,String amount,String i_date){
+    public Invoice(int invoice_id,int bsn_id, int gL, int vendor_id,String invoice_num,String item,
+                   String amount,String i_date){
         this.invoice_id = invoice_id;
         this.bsn_id = bsn_id;
+        this.gL = gL;
         this.vendor_id = vendor_id;
         this.invoice_num = invoice_num;
         this.item = item;
-        this.description = description;
         this.amount = amount;
         this.i_date = i_date;
     }
@@ -34,7 +34,6 @@ public class Invoice {
                 ", vendor_id=" + vendor_id +
                 ", invoice_num='" + invoice_num + '\'' +
                 ", item='" + item + '\'' +
-                ", description='" + description + '\'' +
                 ", amount='" + amount + '\'' +
                 ", i_date='" + i_date + '\'' +
                 '}';
@@ -80,13 +79,9 @@ public class Invoice {
         this.item = item;
     }
 
-    public String getDescription() {
-        return description;
-    }
+    public int getgL() { return gL; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setgL(int gL) { this.gL = gL; }
 
     public String getAmount() {
         return amount;
