@@ -1,17 +1,19 @@
 package com.example.bookkeepingking;
 
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.annotation.NonNull;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
-
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 public class CalendarFragment extends Fragment {
     // Define the variable of CalendarView type
     // and TextView type;
-    CalendarView calendar;
+    /*CalendarView calendar;
     TextView date_view;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,5 +60,5 @@ public class CalendarFragment extends Fragment {
                             }
                         });
     }
-
+*/
 }
