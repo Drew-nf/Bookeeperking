@@ -4,6 +4,7 @@ public class Employee {
     private int employee_id;
     private int bsn_id;
     private String f_name;
+    private String m_name;
     private String l_name;
     private String address;
     private String state;
@@ -16,12 +17,13 @@ public class Employee {
     private boolean is_married;
     private boolean active;
 
-    public Employee(int employee_id, int bsn_id, String f_name, String l_name, String address,
+    public Employee(int employee_id, int bsn_id, String f_name, String m_name, String l_name, String address,
                     String state, String city, String zip, String phone, String ssn,
                     int allowances, String p_rotation, boolean is_married, boolean active) {
         this.employee_id = employee_id;
         this.bsn_id = bsn_id;
         this.f_name = f_name;
+        this.m_name = m_name;
         this.l_name = l_name;
         this.address = address;
         this.state = state;
@@ -58,6 +60,9 @@ public class Employee {
                 '}';
     }
 
+    public String getM_name() { return m_name; }
+
+    public void setM_name(String m_name) { this.m_name = m_name;}
 
     public int getEmployee_id() {
         return employee_id;

@@ -37,6 +37,8 @@ public class EditEmployeeFragment extends Fragment {
         Employee employee = dataBaseHelper.getEmployee(3);
         EditText textBox = (EditText) getView().findViewById(R.id.editTextFirstName);
         textBox.setText(employee.getF_name());
+        textBox = (EditText) getView().findViewById(R.id.editTextMiddleName);
+        textBox.setText(employee.getM_name());
         textBox = (EditText) getView().findViewById(R.id.editTextLastName);
         textBox.setText(employee.getL_name());
         textBox = (EditText) getView().findViewById(R.id.editTextSsn);

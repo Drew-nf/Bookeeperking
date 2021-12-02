@@ -34,6 +34,7 @@ public class AddEmployeeFragment extends Fragment {
                 Employee employee;
                 try{
                     employee = new Employee(-1,1, getString(getView().findViewById(R.id.editTextFirstName)),
+                            getString(getView().findViewById(R.id.editTextMiddleName)),
                             getString(getView().findViewById(R.id.editTextLastName)),
                             getString(getView().findViewById(R.id.editTextAddress)),
                             getString(getView().findViewById(R.id.editTextState)),
@@ -46,7 +47,7 @@ public class AddEmployeeFragment extends Fragment {
                             true,
                             true);
                 }catch(Exception e){
-                employee = new Employee(-1,1,"error", "error",
+                employee = new Employee(-1,1,"error", "error", "error",
                         "error","error","error","error", "error","error",
                         0,"weekly", true, true);
                 }
