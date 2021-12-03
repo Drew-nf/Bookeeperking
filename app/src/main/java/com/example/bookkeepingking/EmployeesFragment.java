@@ -8,7 +8,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
 import androidx.navigation.fragment.NavHostFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import LocalDatabase.DataBaseHelper;
+import LocalDatabase.Employee;
 
 public class EmployeesFragment extends Fragment {
     boolean empIsNew;
@@ -16,7 +25,23 @@ public class EmployeesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_employees, container, false);
+        View v = inflater.inflate(R.layout.fragment_employees, container, false);
+
+        //List of Names
+        List<Employee> list = new ArrayList<>();
+        DataBaseHelper db = new DataBaseHelper(getContext());
+        list = db.getAllEmployee();
+        String [] names = {list.get(0).getF_name(), list.get(0).getL_name(), list.get(1).getF_name(), list.get(2).getF_name()};
+
+
+        //Choice set
+        //String [] names = {"Evan", "Fadi", "Drew", "Frank"};
+        Spinner spinner = (Spinner) v.findViewById(R.id.employeeNames);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, names);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+
+        return v;
     }
 
 
