@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Employee;
@@ -53,6 +54,15 @@ public class AddEmployeeFragment extends Fragment {
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(thisContext);
                 boolean success = dataBaseHelper.addEmployee(employee);
+                Toast toast;
+                if(success){
+                    toast = Toast.makeText(getContext(), "Invoice Added", Toast.LENGTH_LONG);
+                }else{
+                    toast = Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
+                }
+                toast.show();
+                NavHostFragment.findNavController(AddEmployeeFragment.this).
+                        navigate(R.id.action_addEmployeeFragment_to_HomeFragment);
             }
         });
         // Inflate the layout for this fragment
