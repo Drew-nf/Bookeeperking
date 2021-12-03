@@ -56,7 +56,7 @@ public class AddEmployeeFragment extends Fragment {
                 boolean success = dataBaseHelper.addEmployee(employee);
                 Toast toast;
                 if(success){
-                    toast = Toast.makeText(getContext(), "Invoice Added", Toast.LENGTH_LONG);
+                    toast = Toast.makeText(getContext(), "Employee Added", Toast.LENGTH_LONG);
                 }else{
                     toast = Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
                 }
