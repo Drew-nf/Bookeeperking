@@ -1,5 +1,6 @@
 package com.example.bookkeepingking;
 
+import android.database.DataSetObserver;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.Spinner;
 
 import androidx.navigation.fragment.NavHostFragment;
@@ -31,9 +33,10 @@ public class EmployeesFragment extends Fragment {
         List<Employee> list = new ArrayList<>();
         DataBaseHelper db = new DataBaseHelper(getContext());
         list = db.getAllEmployee();
-        String [] names = {list.get(0).getF_name(), list.get(0).getL_name(), list.get(1).getF_name(), list.get(2).getF_name()};
-
-
+        List<String> names = new ArrayList<>();
+        for(int i = 0; i < list.size() ; i++){
+               names.add(list.get(i).getF_name() + " " + list.get(i).getL_name());
+        }
         //Choice set
         //String [] names = {"Evan", "Fadi", "Drew", "Frank"};
         Spinner spinner = (Spinner) v.findViewById(R.id.employeeNames);
