@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -53,6 +54,13 @@ public class AddInvoiceFragment extends Fragment {
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
                 //This will send it back to the main menu and add to database
                 boolean success = dataBaseHelper.addInvoice(invoice);
+                Toast toast;
+                if(success){
+                    toast = Toast.makeText(getContext(), "Invoice Added", Toast.LENGTH_LONG);
+                }else{
+                    toast = Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
+                }
+                toast.show();
                 NavHostFragment.findNavController(AddInvoiceFragment.this).
                         navigate(R.id.action_addInvoiceFragment_to_HomeFragment);
             }

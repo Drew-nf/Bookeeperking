@@ -1,64 +1,28 @@
 package com.example.bookkeepingking;
 
-//import android.support.annotation.NonNull;
-//import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
+
 
 public class CalendarFragment extends Fragment {
-    // Define the variable of CalendarView type
-    // and TextView type;
-    /*CalendarView calendar;
-    TextView date_view;
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        // By ID we can use each component
-        // which id is assign in xml file
-        // use findViewById() to get the
-        // CalendarView and TextView
-        calendar = (CalendarView)
-                findViewById(R.id.calendar);
-        date_view = (TextView)
-                findViewById(R.id.date_view);
-
-        // Add Listener in calendar
-        calendar
-                .setOnDateChangeListener(
-                        new CalendarView
-                                .OnDateChangeListener() {
-                            @Override
-
-                            // In this Listener have one method
-                            // and in this method we will
-                            // get the value of DAYS, MONTH, YEARS
-                            public void onSelectedDayChange(
-                                    @NonNull CalendarView view,
-                                    int year,
-                                    int month,
-                                    int dayOfMonth)
-                            {
-
-                                // Store the value of date with
-                                // format in String type Variable
-                                // Add 1 in month because month
-                                // index is start with 0
-                                String Date
-                                        = dayOfMonth + "-"
-                                        + (month + 1) + "-" + year;
-
-                                // set this date in TextView for Display
-                                date_view.setText(Date);
-                            }
-                        });
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState
+    ) {
+        View fragmentFirstLayout = inflater.inflate(R.layout.fragment_calendar, container, false);
+        // Inflate the layout for this fragment
+        return fragmentFirstLayout;
     }
-*/
+
 }
