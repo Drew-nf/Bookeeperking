@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Payroll;
@@ -52,7 +53,25 @@ public class PayrollFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        view.findViewById(R.id.buttonPayrollCalc).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText textBox = (EditText) getView().findViewById(R.id.grossAmtInput);
+                textBox.setText(calcGross());
+                textBox=(EditText) getView().findViewById(R.id.federalIncomeTaxInput);
+                textBox.setText(calcFederalIncomeTax());
+                textBox=(EditText) getView().findViewById(R.id.socialSecurityInput);
+                textBox.setText(calcSocialSecurity());
+                textBox=(EditText) getView().findViewById(R.id.medicareInput);
+                textBox.setText(calcMedicare());
+                textBox=(EditText) getView().findViewById(R.id.stateIncomeTaxInput);
+                textBox.setText(calcStateIncomeTax());
+                textBox=(EditText) getView().findViewById(R.id.stateDisabilityInsuranceInput);
+                textBox.setText(calcStateDisabilityInsurance());
+                textBox=(EditText) getView().findViewById(R.id.netPayInput);
+                textBox.setText(calcNetPay());
+            }
+        });
         view.findViewById(R.id.buttonCancelPayroll).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -76,5 +95,31 @@ public class PayrollFragment extends Fragment {
     public String getString(EditText e){
         String k = e.getText().toString();
         return k;
+    }
+
+    public String calcGross(){
+        String hourlyPay = getString(getView().findViewById(R.id.hourlyPayInput));
+        String hoursWorked = getString(getView().findViewById(R.id.numberOfHoursWorkedInput));
+        return String.format("%.2f",Double.parseDouble(hoursWorked) * Double.parseDouble(hourlyPay));
+    }
+    public String calcFederalIncomeTax(){
+        return String.format("%.2f", Double.parseDouble(calcGross())*.0887);
+    }
+    public String calcSocialSecurity(){
+        return String.format("%.2f",Double.parseDouble(calcGross())*.062);
+    }
+    public String calcMedicare(){
+        return String.format("%.2f",Double.parseDouble(calcGross())*.0145);
+    }
+    public String calcStateIncomeTax(){
+        return String.format("%.2f",Double.parseDouble(calcGross())*.0061);
+    }
+    public String calcStateDisabilityInsurance(){
+        return String.format("%.2f",Double.parseDouble(calcGross())*.01);
+    }
+    public String calcNetPay(){
+        return String.format("%.2f",Double.parseDouble(calcGross())-Double.parseDouble(calcFederalIncomeTax())
+                    -Double.parseDouble(calcSocialSecurity())-Double.parseDouble(calcMedicare())
+                    -Double.parseDouble(calcStateIncomeTax())-Double.parseDouble(calcStateDisabilityInsurance()));
     }
 }
