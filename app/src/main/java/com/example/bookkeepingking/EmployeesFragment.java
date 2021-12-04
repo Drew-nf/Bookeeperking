@@ -28,28 +28,25 @@ public class EmployeesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_employees, container, false);
-
-        //List of Names
-        List<Employee> list = new ArrayList<>();
-        DataBaseHelper db = new DataBaseHelper(getContext());
-        list = db.getAllEmployee();
-        List<String> names = new ArrayList<>();
-        for(int i = 0; i < list.size() ; i++){
-               names.add(list.get(i).getF_name() + " " + list.get(i).getL_name());
-        }
-        //Choice set
-        //String [] names = {"Evan", "Fadi", "Drew", "Frank"};
-        Spinner spinner = (Spinner) v.findViewById(R.id.employeeNames);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, names);
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spinner.setAdapter(adapter);
-
         return v;
     }
 
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        List<Employee> list = new ArrayList<>();
+        DataBaseHelper db = new DataBaseHelper(getContext());
+        list = db.getAllEmployee();
+        List<String> names = new ArrayList<>();
+        for(int i = 0; i < list.size() ; i++){
+            names.add(list.get(i).getF_name() + " " + list.get(i).getL_name());
+        }
+        Spinner spinner = (Spinner) view.findViewById(R.id.employeeNames);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, names);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+
         view.findViewById(R.id.buttonAddEmployee).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
