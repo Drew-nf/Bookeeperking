@@ -10,11 +10,18 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import LocalDatabase.DataBaseHelper;
+import LocalDatabase.Employee;
 import LocalDatabase.Payroll;
 
 public class PayrollFragment extends Fragment {
@@ -53,6 +60,7 @@ public class PayrollFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //calculate button actions
         view.findViewById(R.id.buttonPayrollCalc).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +92,31 @@ public class PayrollFragment extends Fragment {
             public void onClick(View view){
                 NavHostFragment.findNavController(PayrollFragment.this).
                         navigate(R.id.action_payrollFragment_to_HomeFragment);
+            }
+        });
+
+        List<Employee> list = new ArrayList<>();
+        DataBaseHelper db = new DataBaseHelper(getContext());
+        list = db.getAllEmployee();
+        List<String> names = new ArrayList<>();
+        for(int i = 0; i < list.size() ; i++){
+            names.add(list.get(i).getF_name() + " " + list.get(i).getL_name());
+        }
+        Spinner spinner = (Spinner) view.findViewById(R.id.employeeSpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, names);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                EditText text = (EditText) getView().findViewById(R.id.empNameInput);
+                text.setText(spinner.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                EditText text = (EditText) getView().findViewById(R.id.empNameInput);
+                text.setText(" ");
             }
         });
 
