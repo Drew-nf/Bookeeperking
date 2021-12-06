@@ -7,6 +7,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,7 @@ import LocalDatabase.ClientLogin;
 import LocalDatabase.Employee;
 
 public class MainActivity extends AppCompatActivity {
+    public int id;
 
 
     @Override

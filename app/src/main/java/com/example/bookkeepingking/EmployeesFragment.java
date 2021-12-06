@@ -1,5 +1,6 @@
 package com.example.bookkeepingking;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 
@@ -13,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.Spinner;
 
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.ArrayList;
@@ -56,6 +59,10 @@ public class EmployeesFragment extends Fragment {
         view.findViewById(R.id.buttonEditEmployee).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle result = new Bundle();
+                int index = names.indexOf(spinner.getSelectedItem());
+                result.putInt("key", (index +1));
+                getParentFragmentManager().setFragmentResult("dataFromEmployee",result);
                 NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_editEmployeeFragment);
             }
         });

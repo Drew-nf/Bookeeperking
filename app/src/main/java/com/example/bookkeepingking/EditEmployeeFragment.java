@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.ArrayList;
@@ -18,13 +20,43 @@ import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Employee;
 
 public class EditEmployeeFragment extends Fragment {
-
+    public int id = 2;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
         View view = inflater.inflate(R.layout.fragment_edit_employee, container, false);
+
+        getParentFragmentManager().setFragmentResultListener("dataFromEmployee", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                id = result.getInt("key");
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+                Employee employee = dataBaseHelper.getEmployee(id);
+                EditText textBox = (EditText) getView().findViewById(R.id.editTextFirstName);
+                textBox.setText(employee.getF_name());
+                textBox = (EditText) getView().findViewById(R.id.editTextMiddleName);
+                textBox.setText(employee.getM_name());
+                textBox = (EditText) getView().findViewById(R.id.editTextLastName);
+                textBox.setText(employee.getL_name());
+                textBox = (EditText) getView().findViewById(R.id.editTextSsn);
+                textBox.setText(employee.getSsn());
+                textBox = (EditText) getView().findViewById(R.id.editTextPhnnumber);
+                textBox.setText(employee.getPhone());
+                textBox = (EditText) getView().findViewById(R.id.editTextAddress);
+                textBox.setText(employee.getAddress());
+                textBox = (EditText) getView().findViewById(R.id.editTextCity);
+                textBox.setText(employee.getCity());
+                textBox = (EditText) getView().findViewById(R.id.editTextState);
+                textBox.setText(employee.getState());
+                textBox = (EditText) getView().findViewById(R.id.editTextZip);
+                textBox.setText(employee.getZip());
+                textBox = (EditText) getView().findViewById(R.id.editTextAllow);
+                textBox.setText(String.valueOf(employee.getAllowances()));
+            }
+        });
+
         return view;
     }
     @Override
@@ -33,8 +65,8 @@ public class EditEmployeeFragment extends Fragment {
 
         //populate the edit text boxes
         //requires employee id number
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
-        Employee employee = dataBaseHelper.getEmployee(3);
+        /*DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+        Employee employee = dataBaseHelper.getEmployee(id);
         EditText textBox = (EditText) getView().findViewById(R.id.editTextFirstName);
         textBox.setText(employee.getF_name());
         textBox = (EditText) getView().findViewById(R.id.editTextMiddleName);
@@ -54,7 +86,7 @@ public class EditEmployeeFragment extends Fragment {
         textBox = (EditText) getView().findViewById(R.id.editTextZip);
         textBox.setText(employee.getZip());
         textBox = (EditText) getView().findViewById(R.id.editTextAllow);
-        textBox.setText(String.valueOf(employee.getAllowances()));
+        textBox.setText(String.valueOf(employee.getAllowances()));*/
             //create database object
         //DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
             //create list of all employees in database
