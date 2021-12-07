@@ -11,13 +11,11 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-
-import java.util.List;
+import android.widget.Spinner;
 
 import LocalDatabase.DataBaseHelper;
-import LocalDatabase.Employee;
 import LocalDatabase.Invoice;
 
 public class EditInvoiceFragment extends Fragment {
@@ -27,7 +25,7 @@ public class EditInvoiceFragment extends Fragment {
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View fragmentFirstLayout = inflater.inflate(R.layout.fragment_edit_invoice, container, false);
+        View view = inflater.inflate(R.layout.fragment_edit_invoice, container, false);
 
         getParentFragmentManager().setFragmentResultListener("dataFromInvoice", this, new FragmentResultListener() {
             @Override
@@ -42,10 +40,32 @@ public class EditInvoiceFragment extends Fragment {
                 textBox = (EditText) getView().findViewById(R.id.editTextInvoiceTotal);
                 textBox.setText(invoice.getAmount());
             }
+
         });
 
+        String[] vendorId = { "1", "2", "3" };
+        String[] item = {"Chips","Beer","Milk"};
+        String[] gl = {"1","2","3"};
+        String[] paymentMethod = {"Cash","Check","Credit"};
+        Spinner spinner = (Spinner) view.findViewById(R.id.spinnerVendorIdEdit);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, vendorId);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+        spinner = (Spinner) view.findViewById(R.id.spinnerItemEdit);
+        adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, item);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+        spinner = (Spinner) view.findViewById(R.id.spinnerGlEdit);
+        adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, gl);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+        spinner = (Spinner) view.findViewById(R.id.spinnerPaymentMethodEdit);
+        adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, paymentMethod);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+
         // Inflate the layout for this fragment
-        return fragmentFirstLayout;
+        return view;
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
