@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -21,11 +22,28 @@ import LocalDatabase.Invoice;
 
 public class EditInvoiceFragment extends Fragment {
     boolean invoiceIsNew;
+    public int id = 1;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View fragmentFirstLayout = inflater.inflate(R.layout.fragment_edit_invoice, container, false);
+
+        getParentFragmentManager().setFragmentResultListener("dataFromInvoice", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                id = result.getInt("key");
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+                Invoice invoice = dataBaseHelper.getInvoice(id);
+                EditText textBox = (EditText) getView().findViewById(R.id.editTextInvoiceDate);
+                textBox.setText(invoice.getI_date());
+                textBox = (EditText) getView().findViewById(R.id.editTextInvoiceNum);
+                textBox.setText(invoice.getInvoice_num());
+                textBox = (EditText) getView().findViewById(R.id.editTextInvoiceTotal);
+                textBox.setText(invoice.getAmount());
+            }
+        });
+
         // Inflate the layout for this fragment
         return fragmentFirstLayout;
     }

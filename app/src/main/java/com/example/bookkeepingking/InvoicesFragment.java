@@ -10,7 +10,16 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import LocalDatabase.DataBaseHelper;
+import LocalDatabase.Employee;
+import LocalDatabase.Invoice;
 
 public class InvoicesFragment extends Fragment {
 
@@ -25,9 +34,27 @@ public class InvoicesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        List<Invoice> list = new ArrayList<>();
+        DataBaseHelper db = new DataBaseHelper(getContext());
+        list = db.getAllInvoice();
+        List<String> invoiceNum = new ArrayList<>();
+        for(int i = 0; i < list.size() ; i++){
+            invoiceNum.add(list.get(i).getInvoice_num());
+        }
+        Spinner spinner = (Spinner) view.findViewById(R.id.spinnerInvoiceList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, invoiceNum);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+
         view.findViewById(R.id.buttonEditInvoice).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+
+                Bundle invoiceBundle = new Bundle();
+                int index = invoiceNum.indexOf(spinner.getSelectedItem());
+                invoiceBundle.putInt("key", (index + 1));
+                getParentFragmentManager().setFragmentResult("dataFromInvoice",invoiceBundle);
+
                 NavHostFragment.findNavController(InvoicesFragment.this).
                         navigate(R.id.action_invoicesFragment_to_fragmentInvoiceEditor);
             }
