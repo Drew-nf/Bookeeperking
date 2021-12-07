@@ -97,7 +97,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("phone", employee.getPhone());
         cv.put("ssn", employee.getSsn());
         cv.put("allowances", employee.getAllowances());
-        cv.put("p_rotation", employee.getAllowances());
+        cv.put("p_rotation", employee.getP_rotation());
         cv.put("is_married", employee.isIs_married());
         cv.put("active", employee.isActive());
         long insert = db.insert("employee", null,cv);

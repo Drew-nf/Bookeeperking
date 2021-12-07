@@ -10,8 +10,10 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import LocalDatabase.DataBaseHelper;
@@ -43,14 +45,14 @@ public class AddEmployeeFragment extends Fragment {
                             getString(getView().findViewById(R.id.editTextZip)),
                             getString(getView().findViewById(R.id.editTextPhnnumber)),
                             getString(getView().findViewById(R.id.editTextSsn)),
-                            0,
-                            "weekly",
-                            true,
+                            Integer.parseInt(getString(getView().findViewById(R.id.editTextAllow))),
+                            ((Spinner) view.findViewById(R.id.spinnerFOPAdd)).getSelectedItem().toString(),
+                            getIsMarried(),
                             true);
                 }catch(Exception e){
                 employee = new Employee(-1,1,"error", "error", "error",
                         "error","error","error","error", "error","error",
-                        0,"weekly", true, true);
+                        0,"error", true, true);
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(thisContext);
                 boolean success = dataBaseHelper.addEmployee(employee);
@@ -72,6 +74,17 @@ public class AddEmployeeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        String[] isMarried = {"Single","Married"};
+        String[] allowances = {"weekly", "bi-monthly"};
+        Spinner spinner = (Spinner) view.findViewById(R.id.spinnerIsMarriedAdd);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, isMarried);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+        spinner = (Spinner) view.findViewById(R.id.spinnerFOPAdd);
+        adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, allowances);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+
         view.findViewById(R.id.buttonCancelEmpAdd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +101,11 @@ public class AddEmployeeFragment extends Fragment {
     public String getString(EditText e){
         String k = e.getText().toString();
         return k;
+    }
+    public Boolean getIsMarried(){
+        if((((Spinner) getView().findViewById(R.id.spinnerIsMarriedAdd)).getSelectedItem().toString()).equals("Married")){
+            return true;
+        }else{ return false;}
     }
 
 }

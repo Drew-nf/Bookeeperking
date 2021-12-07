@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class AddInvoiceFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         View fragmentFirstLayout = inflater.inflate(R.layout.fragment_add_invoice, container, false);
+
+
         // Inflate the layout for this fragment
         return fragmentFirstLayout;
     }
