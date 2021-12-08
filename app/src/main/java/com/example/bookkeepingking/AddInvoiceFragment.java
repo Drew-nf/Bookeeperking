@@ -36,9 +36,9 @@ public class AddInvoiceFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String[] vendorId = { "1", "2", "3" };
-        String[] item = {"Chips","Beer","Milk"};
-        String[] gl = {"1","2","3"};
+        String[] vendorId = { "Frito-Lay", "Coca Cola", "Donations" };
+        String[] item = {"Chips","Beer","Milk", "Expense"};
+        String[] gl = {"Cost of Goods Sold","Donation Expense","Utilities Expense"};
         String[] paymentMethod = {"Cash","Check","Credit"};
         Spinner spinner = (Spinner) view.findViewById(R.id.spinnerVendorIdEdit);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, vendorId);
@@ -70,8 +70,8 @@ public class AddInvoiceFragment extends Fragment {
                 Invoice invoice;
                 try{
                     invoice = new Invoice(-1,1,
-                            Integer.parseInt(((Spinner) view.findViewById(R.id.spinnerGlEdit)).getSelectedItem().toString()),
-                            Integer.parseInt(((Spinner) view.findViewById(R.id.spinnerVendorIdEdit)).getSelectedItem().toString()),
+                            ((Spinner) view.findViewById(R.id.spinnerGlEdit)).getSelectedItem().toString(),
+                            ((Spinner) view.findViewById(R.id.spinnerVendorIdEdit)).getSelectedItem().toString(),
                             invoiceIsTaxDeductible,
                             getString(getView().findViewById(R.id.editTextInvoiceNum)),
                             ((Spinner) view.findViewById(R.id.spinnerItemEdit)).getSelectedItem().toString(),
@@ -80,7 +80,7 @@ public class AddInvoiceFragment extends Fragment {
                             ((Spinner) view.findViewById(R.id.spinnerPaymentMethodEdit)).getSelectedItem().toString()
                     );
                 }catch(Exception e){
-                    invoice = new Invoice(-1,1,1, 1, (byte) 1,
+                    invoice = new Invoice(-1,1,"1", "1", (byte) 1,
                             "error","error","error","error", "error");
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());

@@ -22,8 +22,8 @@ import LocalDatabase.Invoice;
 
 public class EditInvoiceFragment extends Fragment {
     boolean invoiceIsNew;
-    public int vendorIdValue;
-    public int glValue;
+    public String vendorIdValue;
+    public String glValue;
     public String payMethodValue;
     public String itemValue;
     public int id = 1;
@@ -61,9 +61,9 @@ public class EditInvoiceFragment extends Fragment {
                 //Toast.makeText(getContext(), payMethod[0], Toast.LENGTH_SHORT).show();
                 vendorIdValue = invoice.getVendor_id();
                 glValue= invoice.getgL();
-                String[] vendorId = { "1", "2", "3" };
-                String[] item = {"Chips","Beer","Milk"};
-                String[] gl = {"1","2","3"};
+                String[] vendorId = { "Frito-Lay", "Coca Cola", "Donations" };
+                String[] item = {"Chips","Beer","Milk", "Expense"};
+                String[] gl = {"Cost of Goods Sold","Donation Expense","Utilities Expense"};
                 String[] paymentMethod = {"Cash","Check","Credit"};
                 Spinner spinner = (Spinner) view.findViewById(R.id.spinnerVendorIdEdit);
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, vendorId);

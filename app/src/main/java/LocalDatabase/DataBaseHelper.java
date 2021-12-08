@@ -51,7 +51,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                                     "REFERENCES bsn_id(bsn_id))";
         db.execSQL(createTableStatment);
 
-        createTableStatment = "CREATE TABLE invoice(invoice_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, gL INTEGER, vendor_id INTEGER,is_tax_deductible BYTE,"+
+        createTableStatment = "CREATE TABLE invoice(invoice_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, gL TEXT, vendor_id TEXT,is_tax_deductible BYTE,"+
                                 "invoice_num TEXT, item TEXT, amount TEXT, i_date TEXT, pay_method TEXT,"+
                                 "FOREIGN KEY(bsn_id)"+
                                     "REFERENCES bsn_id(bsn_id),"+
@@ -174,8 +174,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             do{
                 int invoice_id=cursor.getInt(0);
                 int bsn_id=cursor.getInt(1);
-                int gL=cursor.getInt(2);
-                int vendor_id=cursor.getInt(3);
+                String gL=cursor.getString(2);
+                String vendor_id=cursor.getString(3);
                 byte is_tax_deductible=(byte) cursor.getInt(4);
                 String invoice_num=cursor.getString(5);
                 String item=cursor.getString(6);
@@ -255,8 +255,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(queryString, null);
         if (cursor.moveToFirst()) {int invoice_id=cursor.getInt(0);
             int bsn_id=cursor.getInt(1);
-            int gL=cursor.getInt(2);
-            int vendor_id=cursor.getInt(3);
+            String gL=cursor.getString(2);
+            String vendor_id=cursor.getString(3);
             byte is_tax_deductible=(byte) cursor.getInt(4);
             String invoice_num=cursor.getString(5);
             String item=cursor.getString(6);
@@ -274,8 +274,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         else{
             int invoice_id = 666;
             int bsn_id=666;
-            int gL=666;
-            int vendor_id=666;
+            String gL="666";
+            String vendor_id="666";
             byte is_tax_deductible = 0;
             String invoice_num="error";
             String item="error";

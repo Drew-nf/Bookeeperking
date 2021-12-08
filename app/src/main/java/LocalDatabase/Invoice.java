@@ -3,8 +3,8 @@ package LocalDatabase;
 public class Invoice {
     private int invoice_id;
     private int bsn_id;
-    private int gL;
-    private int vendor_id;
+    private String gL;
+    private String vendor_id;
     private byte is_tax_deductible;
     private String invoice_num;
     private String item;
@@ -12,7 +12,7 @@ public class Invoice {
     private String i_date;
     private String payMethod;
 
-    public Invoice(int invoice_id,int bsn_id, int gL, int vendor_id,byte is_tax_deductible,
+    public Invoice(int invoice_id,int bsn_id, String gL, String vendor_id,byte is_tax_deductible,
                    String invoice_num,String item, String amount,String i_date,String payMethod){
         this.invoice_id = invoice_id;
         this.bsn_id = bsn_id;
@@ -65,11 +65,19 @@ public class Invoice {
         this.bsn_id = bsn_id;
     }
 
-    public int getVendor_id() {
+    public String getgL() {
+        return gL;
+    }
+
+    public void setgL(String gL) {
+        this.gL = gL;
+    }
+
+    public String getVendor_id() {
         return vendor_id;
     }
 
-    public void setVendor_id(int vendor_id) {
+    public void setVendor_id(String vendor_id) {
         this.vendor_id = vendor_id;
     }
 
@@ -97,9 +105,6 @@ public class Invoice {
         this.item = item;
     }
 
-    public int getgL() { return gL; }
-
-    public void setgL(int gL) { this.gL = gL; }
 
     public String getAmount() {
         return amount;
