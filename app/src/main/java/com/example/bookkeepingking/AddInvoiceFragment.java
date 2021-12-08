@@ -69,12 +69,12 @@ public class AddInvoiceFragment extends Fragment {
                             getString(getView().findViewById(R.id.editTextInvoiceNum)),
                             ((Spinner) view.findViewById(R.id.spinnerItemEdit)).getSelectedItem().toString(),
                             getString(getView().findViewById(R.id.editTextInvoiceTotal)),
-                            getString(getView().findViewById(R.id.editTextInvoiceDate))
-                            //((Spinner)view.findViewById(R.id.spinnerPaymentMethodAdd)).getSelectedItem().toString()
+                            getString(getView().findViewById(R.id.editTextInvoiceDate)),
+                            ((Spinner) view.findViewById(R.id.spinnerPaymentMethodEdit)).getSelectedItem().toString()
                     );
                 }catch(Exception e){
                     invoice = new Invoice(-1,1,1, 1,
-                            "error","error","error","error");
+                            "error","error","error","error", "error");
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
                 //This will send it back to the main menu and add to database

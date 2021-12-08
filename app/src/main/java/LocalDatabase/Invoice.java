@@ -9,9 +9,10 @@ public class Invoice {
     private String item;
     private String amount;
     private String i_date;
+    private String payMethod;
 
     public Invoice(int invoice_id,int bsn_id, int gL, int vendor_id,String invoice_num,String item,
-                   String amount,String i_date){
+                   String amount,String i_date,String payMethod){
         this.invoice_id = invoice_id;
         this.bsn_id = bsn_id;
         this.gL = gL;
@@ -20,6 +21,7 @@ public class Invoice {
         this.item = item;
         this.amount = amount;
         this.i_date = i_date;
+        this.payMethod = payMethod;
     }
 
     public Invoice(){
@@ -38,6 +40,10 @@ public class Invoice {
                 ", i_date='" + i_date + '\'' +
                 '}';
     }
+
+    public String getPayMethod() { return payMethod; }
+
+    public void setPayMethod(String payMethod) { this.payMethod = payMethod; }
 
     public int getInvoice_id() {
         return invoice_id;

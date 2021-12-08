@@ -52,7 +52,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableStatment);
 
         createTableStatment = "CREATE TABLE invoice(invoice_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, gL INTEGER, vendor_id INTEGER, invoice_num TEXT,"+
-                                "item TEXT, amount TEXT, i_date TEXT,"+
+                                "item TEXT, amount TEXT, i_date TEXT, pay_method TEXT,"+
                                 "FOREIGN KEY(bsn_id)"+
                                     "REFERENCES bsn_id(bsn_id),"+
                                 "FOREIGN KEY(vendor_id)"+
@@ -118,6 +118,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("item",invoice.getItem());
         cv.put("amount",invoice.getAmount());
         cv.put("i_date", invoice.getI_date());
+        cv.put("pay_method",invoice.getPayMethod());
         long insert = db.insert("invoice", null,cv);
         db.close();
         if(insert == -1){
@@ -178,9 +179,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String item=cursor.getString(5);
                 String amount=cursor.getString(6);
                 String i_date= cursor.getString(7);
+                String pay_method = cursor.getString(8);
 
                 Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,invoice_num,item,
-                        amount,i_date);
+                        amount,i_date, pay_method);
                 returnList.add(newInvoice);
             }while(cursor.moveToNext());
         }
@@ -256,9 +258,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             String item=cursor.getString(5);
             String amount= cursor.getString(6);
             String i_date= cursor.getString(7);
+            String pay_method = cursor.getString(8);
 
             Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,invoice_num,item,
-                    amount,i_date);
+                    amount,i_date, pay_method);
             cursor.close();
             db.close();
             return newInvoice;
@@ -273,9 +276,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             String item="error";
             String amount= "error";
             String i_date= "error";
+            String pay_method = "cash";
 
             Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,invoice_num,item,
-                    amount,i_date);
+                    amount,i_date,pay_method);
             cursor.close();
             db.close();
             return newInvoice;
