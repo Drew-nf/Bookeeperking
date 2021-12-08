@@ -26,8 +26,7 @@ public class SalesTaxFragment extends Fragment {
             taxRate=.0950;
         else if(CountyChoice.equals("Burbank"))
             taxRate=.1025;
-        total=Double.toString(taxRate*Double.parseDouble(taxableRevenue));
-
+        total =String.format("%.2f",(Double.parseDouble(taxableRevenue)*taxRate));
 
     }
     @Override
