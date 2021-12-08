@@ -22,10 +22,14 @@ public class SalesTaxFragment extends Fragment {
 
     public void calculate(){
         double taxRate=.095;
-        if(CountyChoice.equals("Northridge"))
+        if(CountyChoice.equals("Los Angeles"))
             taxRate=.0950;
-        else if(CountyChoice.equals("Burbank"))
-            taxRate=.1025;
+        else if(CountyChoice.equals("San Francisco"))
+            taxRate=.0850;
+        else if(CountyChoice.equals("Riverside"))
+            taxRate=.0875;
+        else
+            return;
         total =String.format("%.2f",(Double.parseDouble(taxableRevenue)*taxRate));
 
     }
@@ -36,7 +40,7 @@ public class SalesTaxFragment extends Fragment {
 
         //choice set
         String [] values =
-                {"Select one","Northridge","Burbank"};
+                {"Select one","Los Angeles","San Francisco","Riverside"};
         Spinner spinner = (Spinner) v.findViewById(R.id.spinner5);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, values);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
