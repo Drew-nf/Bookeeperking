@@ -21,22 +21,12 @@ import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Invoice;
 
 public class EditInvoiceFragment extends Fragment {
-    boolean invoiceIsNew;
-    public String vendorIdValue;
-    public String glValue;
-    public String payMethodValue;
-    public String itemValue;
     public int id = 1;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_invoice, container, false);
-
-         //int[] vendorId = { 0 };
-         //int[] gl = { 0 };
-         //String[] itemDes = {" "};
-         //String[] payMethod = {" "};
 
         getParentFragmentManager().setFragmentResultListener("dataFromInvoice", this, new FragmentResultListener() {
             @Override
@@ -56,11 +46,10 @@ public class EditInvoiceFragment extends Fragment {
                 textBox.setText(invoice.getInvoice_num());
                 textBox = (EditText) getView().findViewById(R.id.editTextInvoiceTotal);
                 textBox.setText(invoice.getAmount());
-                itemValue = invoice.getItem();
-                payMethodValue = invoice.getPayMethod();
-                //Toast.makeText(getContext(), payMethod[0], Toast.LENGTH_SHORT).show();
-                vendorIdValue = invoice.getVendor_id();
-                glValue= invoice.getgL();
+                String itemValue = invoice.getItem();
+                String payMethodValue = invoice.getPayMethod();
+                String vendorIdValue = invoice.getVendor_id();
+                String glValue= invoice.getgL();
                 String[] vendorId = { "Frito-Lay", "Coca Cola", "Donations" };
                 String[] item = {"Chips","Beer","Milk", "Expense"};
                 String[] gl = {"Cost of Goods Sold","Donation Expense","Utilities Expense"};
@@ -85,32 +74,11 @@ public class EditInvoiceFragment extends Fragment {
                 adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
                 spinner.setAdapter(adapter);
                 selectSpinnerValueString(spinner,payMethodValue);
+                if(invoice.getIs_tax_deductible() == 1){
+                    ((Switch) view.findViewById(R.id.switchTaxDeductibleEdit)).setChecked(true);
+                }
             }
         });
-        int spinnerPosition = 8;
-        /*String[] vendorId = { "1", "2", "3" };
-        String[] item = {"Chips","Beer","Milk"};
-        String[] gl = {"1","2","3"};
-        String[] paymentMethod = {"Cash","Check","Credit"};
-        Spinner spinner = (Spinner) view.findViewById(R.id.spinnerVendorIdEdit);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, vendorId);
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spinner.setAdapter(adapter);
-        spinner = (Spinner) view.findViewById(R.id.spinnerItemEdit);
-        adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, item);
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spinner.setAdapter(adapter);
-        spinner = (Spinner) view.findViewById(R.id.spinnerGlEdit);
-        adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, gl);
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spinner.setAdapter(adapter);
-        spinner = (Spinner) view.findViewById(R.id.spinnerPaymentMethodEdit);
-        adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, paymentMethod);
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spinner.setAdapter(adapter);
-        selectSpinnerValue(spinner,payMethodValue[0]);*/
-        //spinnerPosition = adapter.getPosition(payMethod);
-        //spinner.setSelection(2);
 
         // Inflate the layout for this fragment
         return view;
@@ -135,14 +103,6 @@ public class EditInvoiceFragment extends Fragment {
         textBox.setText(invoice.getInvoice_num());
         textBox = (EditText) getView().findViewById(R.id.editTextInvoiceTotal);
         textBox.setText(invoice.getAmount());
-        //create database object
-        //DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
-        //create list of all employees in database
-        //List<Invoice> list = dataBaseHelper.getAllInvoice();
-        //create edit text object to set new value to
-        //EditText editTextFirstName = (EditText) getView().findViewById(R.id.editTextInvoiceDate);
-        //set edit text box to first employee first name
-        //editTextFirstName.setText(list.get(0).getI_date());
 
         view.findViewById(R.id.buttonCancelInvoiceEdit).setOnClickListener(new View.OnClickListener() {
             @Override
