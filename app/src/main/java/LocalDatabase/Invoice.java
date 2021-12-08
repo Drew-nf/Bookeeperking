@@ -5,17 +5,19 @@ public class Invoice {
     private int bsn_id;
     private int gL;
     private int vendor_id;
+    private byte is_tax_deductible;
     private String invoice_num;
     private String item;
     private String amount;
     private String i_date;
 
-    public Invoice(int invoice_id,int bsn_id, int gL, int vendor_id,String invoice_num,String item,
-                   String amount,String i_date){
+    public Invoice(int invoice_id,int bsn_id, int gL, int vendor_id,byte is_tax_deductible,String invoice_num,
+                   String item, String amount,String i_date){
         this.invoice_id = invoice_id;
         this.bsn_id = bsn_id;
         this.gL = gL;
         this.vendor_id = vendor_id;
+        this.is_tax_deductible = is_tax_deductible;
         this.invoice_num = invoice_num;
         this.item = item;
         this.amount = amount;
@@ -32,6 +34,7 @@ public class Invoice {
                 "invoice_id=" + invoice_id +
                 ", bsn_id=" + bsn_id +
                 ", vendor_id=" + vendor_id +
+                ", is_tax_deductible=" + is_tax_deductible +
                 ", invoice_num='" + invoice_num + '\'' +
                 ", item='" + item + '\'' +
                 ", amount='" + amount + '\'' +
@@ -61,6 +64,14 @@ public class Invoice {
 
     public void setVendor_id(int vendor_id) {
         this.vendor_id = vendor_id;
+    }
+
+    public byte getIs_tax_deductible() {
+        return is_tax_deductible;
+    }
+
+    public void setIs_tax_deductible(byte is_tax_deductible) {
+        this.is_tax_deductible = is_tax_deductible;
     }
 
     public String getInvoice_num() {

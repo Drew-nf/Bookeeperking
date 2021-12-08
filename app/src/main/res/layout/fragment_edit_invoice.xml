@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextInvoiceNum"
-        app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceNum" />
+        app:layout_constraintTop_toBottomOf="@+id/switchTaxDeductibleEdit" />
 
     <Spinner
         android:id="@+id/spinner3"
@@ -107,7 +107,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintBottom_toTopOf="@+id/switchTaxDeductibleEdit"
         app:layout_constraintEnd_toEndOf="@+id/editTextInvoiceDate"
         app:layout_constraintStart_toStartOf="@+id/editTextInvoiceDate"
         app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceDate" />
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:text="@string/item"
         app:layout_constraintBottom_toBottomOf="@+id/spinner2"
-        app:layout_constraintStart_toStartOf="@+id/invoiceNumber"
+        app:layout_constraintStart_toStartOf="@+id/isTaxDeductibleText"
         app:layout_constraintTop_toTopOf="@+id/spinner2" />
 
     <TextView
@@ -250,4 +250,21 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonCancelInvoiceEdit"
         app:layout_constraintStart_toEndOf="@+id/uploadInvoice"
         app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+
+    <TextView
+        android:id="@+id/isTaxDeductibleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/isTaxDeductibleText"
+        app:layout_constraintBottom_toBottomOf="@+id/switchTaxDeductibleEdit"
+        app:layout_constraintStart_toStartOf="@+id/invoiceNumber"
+        app:layout_constraintTop_toTopOf="@+id/switchTaxDeductibleEdit" />
+
+    <Switch
+        android:id="@+id/switchTaxDeductibleEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintStart_toStartOf="@+id/editTextInvoiceNum"
+        app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceNum" />
 </androidx.constraintlayout.widget.ConstraintLayout>

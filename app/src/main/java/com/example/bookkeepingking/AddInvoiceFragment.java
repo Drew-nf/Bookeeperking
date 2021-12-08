@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,7 +21,8 @@ import LocalDatabase.Employee;
 import LocalDatabase.Invoice;
 
 public class AddInvoiceFragment extends Fragment {
-    boolean invoiceIsNew;
+    byte invoiceIsNew;
+    byte invoiceIsTaxDeductible;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -42,16 +44,21 @@ public class AddInvoiceFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
+                if (((Switch) view.findViewById(R.id.switchTaxDeductibleAdd)).isChecked()) {
+                    invoiceIsTaxDeductible = 0;
+                } else {
+                    invoiceIsTaxDeductible = 1;
+                }
                 Invoice invoice;
                 try{
-                    invoice = new Invoice(-1,1,1,1,
+                    invoice = new Invoice(-1,1,1,1,invoiceIsTaxDeductible,
                             getString(getView().findViewById(R.id.editTextInvoiceNum)),
                             " ",
                             getString(getView().findViewById(R.id.editTextInvoiceTotal)),
                             getString(getView().findViewById(R.id.editTextInvoiceDate))
                             );
                 }catch(Exception e){
-                    invoice = new Invoice(-1,1,1, 1,
+                    invoice = new Invoice(-1,1,1, 1, (byte) 0,
                             "error","error","error","error");
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());

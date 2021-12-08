@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".AddInvoiceFragment" >
 
+    <TextView
+        android:id="@+id/isTaxDeductibleText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/isTaxDeductibleText"
+        app:layout_constraintBottom_toBottomOf="@+id/switchTaxDeductibleAdd"
+        app:layout_constraintStart_toStartOf="@+id/invoiceNumber"
+        app:layout_constraintTop_toTopOf="@+id/switchTaxDeductibleAdd" />
+
+    <Switch
+        android:id="@+id/switchTaxDeductibleAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintStart_toStartOf="@+id/editTextInvoiceNum"
+        app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceNum" />
+
     <Spinner
         android:id="@+id/spinner4"
         android:layout_width="0dp"
@@ -24,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextInvoiceNum"
-        app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceNum" />
+        app:layout_constraintTop_toBottomOf="@+id/switchTaxDeductibleAdd" />
 
     <Spinner
         android:id="@+id/spinner3"
@@ -107,7 +124,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintBottom_toTopOf="@+id/switchTaxDeductibleAdd"
         app:layout_constraintEnd_toEndOf="@+id/editTextInvoiceDate"
         app:layout_constraintStart_toStartOf="@+id/editTextInvoiceDate"
         app:layout_constraintTop_toBottomOf="@+id/editTextInvoiceDate" />
@@ -117,8 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/item"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner2"
-        app:layout_constraintStart_toStartOf="@+id/invoiceNumber"
+        app:layout_constraintStart_toStartOf="@+id/isTaxDeductibleText2"
         app:layout_constraintTop_toTopOf="@+id/spinner2" />
 
     <TextView

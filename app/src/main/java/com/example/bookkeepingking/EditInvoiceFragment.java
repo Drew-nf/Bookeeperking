@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 
 import java.util.List;
 
@@ -37,6 +38,13 @@ public class EditInvoiceFragment extends Fragment {
                 Invoice invoice = dataBaseHelper.getInvoice(id);
                 EditText textBox = (EditText) getView().findViewById(R.id.editTextInvoiceDate);
                 textBox.setText(invoice.getI_date());
+                Switch switchTaxDeuctible = (Switch) getView().findViewById(R.id.switchTaxDeductibleEdit);
+                System.out.println(invoice.getIs_tax_deductible());
+                if (invoice.getIs_tax_deductible() == (byte) 0) {
+                    switchTaxDeuctible.setChecked(false);
+                } else {
+                    switchTaxDeuctible.setChecked(true);
+                }
                 textBox = (EditText) getView().findViewById(R.id.editTextInvoiceNum);
                 textBox.setText(invoice.getInvoice_num());
                 textBox = (EditText) getView().findViewById(R.id.editTextInvoiceTotal);
@@ -57,6 +65,12 @@ public class EditInvoiceFragment extends Fragment {
         Invoice invoice = dataBaseHelper.getInvoice(1);
         EditText textBox = (EditText) getView().findViewById(R.id.editTextInvoiceDate);
         textBox.setText(invoice.getI_date());
+        Switch switchTaxDeuctible = (Switch) getView().findViewById(R.id.switchTaxDeductibleEdit);
+        if (invoice.getIs_tax_deductible() == (byte) 0) {
+            switchTaxDeuctible.setChecked(false);
+        } else {
+            switchTaxDeuctible.setChecked(true);
+        }
         textBox = (EditText) getView().findViewById(R.id.editTextInvoiceNum);
         textBox.setText(invoice.getInvoice_num());
         textBox = (EditText) getView().findViewById(R.id.editTextInvoiceTotal);

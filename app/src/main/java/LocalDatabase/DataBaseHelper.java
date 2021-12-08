@@ -51,8 +51,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                                     "REFERENCES bsn_id(bsn_id))";
         db.execSQL(createTableStatment);
 
-        createTableStatment = "CREATE TABLE invoice(invoice_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, gL INTEGER, vendor_id INTEGER, invoice_num TEXT,"+
-                                "item TEXT, amount TEXT, i_date TEXT,"+
+        createTableStatment = "CREATE TABLE invoice(invoice_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, gL INTEGER, vendor_id INTEGER,is_tax_deductible BYTE,"+
+                                "invoice_num TEXT, item TEXT, amount TEXT, i_date TEXT,"+
                                 "FOREIGN KEY(bsn_id)"+
                                     "REFERENCES bsn_id(bsn_id),"+
                                 "FOREIGN KEY(vendor_id)"+
@@ -114,6 +114,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("bsn_id",invoice.getBsn_id());
         cv.put("vendor_id",invoice.getVendor_id());
         cv.put("gL", invoice.getgL());
+        cv.put("is_tax_deductible", invoice.getIs_tax_deductible());
         cv.put("invoice_num",invoice.getInvoice_num());
         cv.put("item",invoice.getItem());
         cv.put("amount",invoice.getAmount());
@@ -174,12 +175,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 int bsn_id=cursor.getInt(1);
                 int gL=cursor.getInt(2);
                 int vendor_id=cursor.getInt(3);
-                String invoice_num=cursor.getString(4);
-                String item=cursor.getString(5);
-                String amount=cursor.getString(6);
-                String i_date= cursor.getString(7);
+                byte is_tax_deductible=(byte) cursor.getInt(4);
+                String invoice_num=cursor.getString(5);
+                String item=cursor.getString(6);
+                String amount= cursor.getString(7);
+                String i_date= cursor.getString(8);
 
-                Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,invoice_num,item,
+                Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,is_tax_deductible,invoice_num,item,
                         amount,i_date);
                 returnList.add(newInvoice);
             }while(cursor.moveToNext());
@@ -252,12 +254,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             int bsn_id=cursor.getInt(1);
             int gL=cursor.getInt(2);
             int vendor_id=cursor.getInt(3);
-            String invoice_num=cursor.getString(4);
-            String item=cursor.getString(5);
-            String amount= cursor.getString(6);
-            String i_date= cursor.getString(7);
-
-            Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,invoice_num,item,
+            byte is_tax_deductible=(byte) cursor.getInt(4);
+            String invoice_num=cursor.getString(5);
+            String item=cursor.getString(6);
+            String amount= cursor.getString(7);
+            String i_date= cursor.getString(8);
+            Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,is_tax_deductible,invoice_num,item,
                     amount,i_date);
             cursor.close();
             db.close();
@@ -269,12 +271,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             int bsn_id=666;
             int gL=666;
             int vendor_id=666;
+            byte is_tax_deductible = 0;
             String invoice_num="error";
             String item="error";
             String amount= "error";
             String i_date= "error";
 
-            Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,invoice_num,item,
+            Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,is_tax_deductible,invoice_num,item,
                     amount,i_date);
             cursor.close();
             db.close();
