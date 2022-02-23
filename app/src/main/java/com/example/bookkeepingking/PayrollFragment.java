@@ -23,6 +23,10 @@ import java.util.List;
 import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Employee;
 import LocalDatabase.Payroll;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class PayrollFragment extends Fragment {
 
@@ -73,6 +77,7 @@ public class PayrollFragment extends Fragment {
                 textBox=(EditText) getView().findViewById(R.id.medicareInput);
                 textBox.setText(calcMedicare());
                 textBox=(EditText) getView().findViewById(R.id.stateIncomeTaxInput);
+                //getIncomeTax();
                 textBox.setText(calcStateIncomeTax());
                 textBox=(EditText) getView().findViewById(R.id.stateDisabilityInsuranceInput);
                 textBox.setText(calcStateDisabilityInsurance());
@@ -146,6 +151,22 @@ public class PayrollFragment extends Fragment {
     }
     public String calcStateIncomeTax(){
         return String.format("%.2f",Double.parseDouble(calcGross())*.0061);
+    }
+
+    public void getIncomeTax() {
+        Retrofit retrofit = RetroFitClass.getInstance();
+        RetroFitClass.BookKeepingService call = retrofit.create(RetroFitClass.BookKeepingService.class);
+        call.fetchSIT(new Employee()).enqueue(new Callback<Employee>() {
+            @Override
+            public void onResponse(Call<Employee> call, Response<Employee> response) {
+                //textBox.setText(response.body().e);
+            }
+
+            @Override
+            public void onFailure(Call<Employee> call, Throwable t) {
+
+            }
+        });
     }
     public String calcStateDisabilityInsurance(){
         return String.format("%.2f",Double.parseDouble(calcGross())*.01);
