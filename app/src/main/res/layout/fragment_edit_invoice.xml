@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".EditInvoiceFragment" >
 
+    <TextView
+        android:id="@+id/photofile2"
+        android:layout_width="136dp"
+        android:layout_height="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:text="No file chosen."
+        android:textAlignment="center"
+
+        tools:layout_editor_absoluteX="221dp"
+        tools:layout_editor_absoluteY="560dp" />
+
     <Spinner
         android:id="@+id/spinnerPaymentMethodEdit"
         android:layout_width="0dp"

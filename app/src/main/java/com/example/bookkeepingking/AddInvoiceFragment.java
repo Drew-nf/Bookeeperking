@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,13 +22,15 @@ import LocalDatabase.Invoice;
 public class AddInvoiceFragment extends Fragment {
     byte invoiceIsNew;
     byte invoiceIsTaxDeductible;
+
+    View fragmentFirstLayout;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        View fragmentFirstLayout = inflater.inflate(R.layout.fragment_add_invoice, container, false);
 
+        fragmentFirstLayout = inflater.inflate(R.layout.fragment_add_invoice, container, false);
 
         // Inflate the layout for this fragment
         return fragmentFirstLayout;

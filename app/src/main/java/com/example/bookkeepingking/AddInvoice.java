@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -22,16 +23,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.Calendar;
 
 public class AddInvoice extends AppCompatActivity implements View.OnClickListener{
    private static final String TAG="date";
     //for camera
     Button photo;
+    Button pdf;
+    Button finish;
     ImageView currentInvoice;
+    TextView photofile;
+    TextView pdfloc;
     private static final int PERMISSION_CODE=100;
     private static final int IMAGE_CAPTURE_CODE=1001;
     Uri image_uri;
+    Intent myFileIntent;
+    String filePath;
+    String photoLocation;
+    boolean photoTaken=false;
+    String finalfile;
+    boolean pdfSelected;
+    boolean pdfchoice;
+    boolean photoselected;
+
 
     //for date
     private TextView DisplayDate;
@@ -44,7 +59,12 @@ public class AddInvoice extends AppCompatActivity implements View.OnClickListene
 
         //camera
         currentInvoice = findViewById(R.id.invoiceTaken);
+        photofile=findViewById(R.id.photofile);
         photo = (Button) findViewById(R.id.fileUpload);
+        pdf= (Button) findViewById(R.id.pdfupload);
+        pdfloc=findViewById(R.id.pdffile);
+        finish=(Button) findViewById(R.id.done);
+
 
         //photo button clicked
         photo.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +81,14 @@ public class AddInvoice extends AppCompatActivity implements View.OnClickListene
                         requestPermissions(permission, PERMISSION_CODE);
                     } else {
                         //permission already granted
-                        openCamera();
+                        if(pdfSelected==false) {
+                            photoselected = true;
+                            openCamera();
+                        }
+                        else{
+                            Toast.makeText(AddInvoice.this, "Already selected pdf!",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                 } else {
                     //system os<marshmallow
@@ -69,46 +96,50 @@ public class AddInvoice extends AppCompatActivity implements View.OnClickListene
                 }
             }
         });
-        //date
-        DisplayDate=(TextView) findViewById(R.id.date);
-        DisplayDate.setOnClickListener(new View.OnClickListener(){
+        pdf.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Calendar cal= Calendar.getInstance();
-                int year=cal.get(Calendar.YEAR);
-                int month=cal.get(Calendar.MONTH);
-                int day=cal.get(Calendar.DAY_OF_MONTH);
+                if(photoTaken==false) {
+                    myFileIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    myFileIntent.addCategory(myFileIntent.CATEGORY_OPENABLE);
+                    myFileIntent.setType("application/pdf");
+                    pdfchoice=true;
+                    startActivityForResult(myFileIntent, 10);
 
-                DatePickerDialog dialog=new DatePickerDialog(
-                        AddInvoice.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        DateSetListener,
-                        year,month,day
-                );
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
+                }
+                else{
+                    Toast.makeText(AddInvoice.this, "Already selected photo!",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
+        finish.setOnClickListener(new View.OnClickListener(){
 
-        //initializing datesetlistener
-        DateSetListener=new DatePickerDialog.OnDateSetListener(){
             @Override
-            public void onDateSet(DatePicker datePicker,int year, int month,int day){
-                month=month+1;
-                Log.d(TAG,"onDateSet: mm/dd/yyyy: "+month+ "/"+day+"/"+year);
-
-                String date=month+"/"+day+"/"+year;
-                DisplayDate.setText(date);
+            public void onClick(View view){
+                if(photoTaken==false&&filePath==null)
+                    finish();
+                else if(photoTaken==false) {
+                    finalfile=filePath;
+                    finish();
+                }
+                else if(filePath !=null) {
+                    finalfile = photoLocation;
+                    finish();
+                }
+                else
+                    finish();
             }
-
-        };
+        });
     }
     public void openCamera(){
+
         ContentValues value=new ContentValues();
         value.put(MediaStore.Images.Media.TITLE,"New Picture");
         value.put(MediaStore.Images.Media.DESCRIPTION,"invoice");
         image_uri=getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,value);
         //Camera intent
+
         Intent cameraIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,image_uri);
         startActivityForResult(cameraIntent,IMAGE_CAPTURE_CODE);
@@ -135,17 +166,37 @@ public class AddInvoice extends AppCompatActivity implements View.OnClickListene
                     Toast.makeText(this,"permission denied",Toast.LENGTH_SHORT).show();
                 }
             }
+
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode,int resultCode,Intent data) {
-        //called when image was captured from camera
-        if(resultCode==RESULT_OK){
-            //set image capture to image view
-            currentInvoice.setImageURI(image_uri);
+        //if pdf selected
+        if(resultCode==RESULT_OK) {
+            if (pdfchoice == true) {
+                pdfSelected=true;
+                pdfchoice=false;
+                filePath = data.getData().getPath();
+                pdfloc.setText(filePath);
 
+            }
+            //if photo selected
+            else if (photoselected == true) {
+                //set image capture to image view
+                photoTaken=true;
+                photoselected=false;
+                currentInvoice.setImageURI(image_uri);
+
+                photoLocation = image_uri.getPath();
+
+                photofile.setText(photoLocation);
+
+            }
+        }else {
+            return;
         }
+
     }
 
     public void onClick(View view){
@@ -153,4 +204,5 @@ public class AddInvoice extends AppCompatActivity implements View.OnClickListene
 
         }
     }
+
 }

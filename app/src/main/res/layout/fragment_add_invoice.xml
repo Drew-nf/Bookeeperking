@@ -7,6 +7,19 @@
     tools:context=".AddInvoiceFragment" >
 
     <TextView
+        android:id="@+id/file"
+        android:layout_width="136dp"
+        android:layout_height="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:text="No file chosen."
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="221dp"
+        tools:layout_editor_absoluteY="560dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
         android:id="@+id/isTaxDeductibleText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -267,5 +280,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/buttonUploadInvoice"
         app:layout_constraintStart_toStartOf="@+id/paymentMethod"
         app:layout_constraintTop_toTopOf="@+id/buttonUploadInvoice" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
