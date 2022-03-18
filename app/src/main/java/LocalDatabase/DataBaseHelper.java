@@ -20,10 +20,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTableStatment = "CREATE TABLE client_login(c_username TEXT PRIMARY KEY, c_password TEXT)";
-        db.execSQL(createTableStatment);
-
-        createTableStatment = "CREATE TABLE accountant_login(a_username TEXT PRIMARY KEY, a_password TEXT)";
+        String createTableStatment = "CREATE TABLE login(username TEXT PRIMARY KEY, password TEXT, is_acc BOOL)";
         db.execSQL(createTableStatment);
 
         createTableStatment = "CREATE TABLE bsn_id(bsn_id INTEGER PRIMARY KEY AUTOINCREMENT, c_username TEXT, a_username TEXT,"+
@@ -64,6 +61,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+    public boolean addLogin(Login login){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("username", login.getUsername());
+        cv.put("password", login.getPassword());
+        cv.put("is_acc", login.getIs_acc());
+        long insert = db.insert("login", null,cv);
+        db.close();
+        if(insert == -1){
+            return false;
+        }else{
+            return true;
+        }
     }
     public boolean addPayroll(Payroll payroll){
         SQLiteDatabase db = this.getWritableDatabase();

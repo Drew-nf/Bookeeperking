@@ -26,6 +26,9 @@ public class RetroFitClass {
     }
 
     public interface BookKeepingService {
+        @POST("/fetchTest")
+            Call<String> fetchTest();
+
       @POST("/fetchSIT")
         Call<Employee> fetchSIT(@Body Employee requestBody);
     }
