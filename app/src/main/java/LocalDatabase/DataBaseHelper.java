@@ -56,6 +56,22 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                                     "REFERENCES vendor(vendor_id))";
         db.execSQL(createTableStatment);
 
+        createTableStatment = "CREATE TABLE chat(chat_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, is_acc BOOL, message TEXT," +
+                                "FOREIGN KEY(bsn_id)" +
+                                    "REFERENCES bsn_id(bsn_id))";
+        db.execSQL(createTableStatment);
+
+        createTableStatment = "CREATE TABLE temp_val(username TEXT PRIMARY KEY, is_acc BOOL, bsn_id INTEGER, employee_id INTEGER, invoice_id INTEGER, vendor_id INTEGER," +
+                                "FOREIGN KEY(bsn_id)" +
+                                    "REFERENCES bsn_id(bsn_id)," +
+                                "FOREIGN KEY(employee_id)" +
+                                    "REFERENCES employee(employee_id)," +
+                                "FOREIGN KEY(invoice_id)" +
+                                    "REFERENCES invoice(invoice_id)," +
+                                "FOREIGN KEY(vendor_id)" +
+                                    "REFERENCES vendor(vendor_id))";
+        db.execSQL(createTableStatment);
+
     }
 
     @Override
