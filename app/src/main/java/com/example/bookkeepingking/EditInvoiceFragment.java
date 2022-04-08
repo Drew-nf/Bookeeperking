@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Spinner;
 
+import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Invoice;
 
 public class EditInvoiceFragment extends Fragment {

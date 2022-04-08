@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
+import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Invoice;
 
 public class InvoicesFragment extends Fragment {
