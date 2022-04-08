@@ -152,21 +152,6 @@ public class PayrollFragment extends Fragment {
         return String.format("%.2f",Double.parseDouble(calcGross())*.0061);
     }
 
-    public void getIncomeTax() {
-        Retrofit retrofit = RetroFitClass.getInstance();
-        RetroFitClass.BookKeepingService call = retrofit.create(RetroFitClass.BookKeepingService.class);
-        call.fetchSIT(new Employee()).enqueue(new Callback<Employee>() {
-            @Override
-            public void onResponse(Call<Employee> call, Response<Employee> response) {
-                //textBox.setText(response.body().e);
-            }
-
-            @Override
-            public void onFailure(Call<Employee> call, Throwable t) {
-
-            }
-        });
-    }
     public String calcStateDisabilityInsurance(){
         return String.format("%.2f",Double.parseDouble(calcGross())*.01);
     }
