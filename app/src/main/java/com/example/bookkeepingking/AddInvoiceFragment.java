@@ -9,14 +9,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Invoice;
 
 public class AddInvoiceFragment extends Fragment {

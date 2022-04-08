@@ -1,6 +1,5 @@
 package com.example.bookkeepingking;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,14 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import LocalDatabase.DataBaseHelper;
-import LocalDatabase.Employee;
 import LocalDatabase.Invoice;
 
 public class InvoicesFragment extends Fragment {
