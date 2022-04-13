@@ -72,6 +72,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                                     "REFERENCES vendor(vendor_id))";
         db.execSQL(createTableStatment);
 
+        //////////////////////////////calender creating a Table/////////////////////////////////
+        createTableStatment = "CREATE TABLE calender(calender_id INTEGER PRIMARY KEY AUTOINCREMENT,bsn_id INTEGER, name TEXT, date TEXT,"+
+                "FOREIGN KEY(bsn_id)" +
+                "REFERENCES bsn_id(bsn_id))"; //please take a look at this part
+        db.execSQL(createTableStatment);
+
+
+
     }
 
     @Override
@@ -155,6 +163,23 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    //////////////////////////////////////////
+    //add calender
+    public boolean addCalender(Calender calender){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("c_name", calender.getC_name());
+        cv.put("c_date", calender.getC_date());
+
+        long insert = db.insert("calender", null,cv);
+        db.close();
+        if(insert == -1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    ////////////////////////////////////////////////
 
     public List<Employee> getAllEmployee(){
         List<Employee> returnList= new ArrayList<>();
@@ -223,6 +248,39 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.close();
         return returnList;
     }
+    //////////////////////////Calender//////////////////////////////////
+
+
+    public List<Calender> getAllCalender(){
+        List<Calender> returnList= new ArrayList<>();
+        String queryString = "SELECT * FROM calender";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString,null);
+        if(cursor.moveToFirst()){
+            do{
+                int calender_id=cursor.getInt(0);
+                int bsn_id=cursor.getInt(1);
+                String c_name= cursor.getString(2);
+                String c_date= cursor.getString(3);
+
+
+
+                Calender newCalender = new Calender(c_name,c_date);
+                returnList.add(newCalender);
+            }while(cursor.moveToNext());
+        }
+        else{
+            //failure. do not add anything to list.
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
+
+
+
+    ///////////////////////////////Calender/////////////////////////////
+
 
     public Employee getEmployee(int id) {
         String queryString = "SELECT * FROM employee WHERE employee_id = " + id;
@@ -316,6 +374,35 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             db.close();
             return newInvoice;
         }
+        ///////////////////////////calender////////////////////////////////////////
+        /*public Calender getCalender(int id) {
+            String queryString = "SELECT * FROM calender WHERE calender_id = " + id;
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cursor = db.rawQuery(queryString, null);
+            if (cursor.moveToFirst()) {int calender_id=cursor.getInt(0);
+                String c_name= cursor.getString(1);
+                String c_date= cursor.getString(2);
+
+
+                Calender newCalender = new Calender(c_name,c_date,);
+                cursor.close();
+                db.close();
+                return newCalender;
+
+            }
+            else{
+
+                String c_name= "error";
+                String c_date= "error";
+
+
+                Calender newCalender = new Calender(c_name,c_date);
+                cursor.close();
+                db.close();
+                return newCalender;
+            }
+
+        */
 
     }
 }

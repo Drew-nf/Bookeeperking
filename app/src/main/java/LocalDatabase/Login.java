@@ -1,7 +1,5 @@
 package LocalDatabase;
 
-import com.example.bookkeepingking.RetroFitClass;
-
 public class Login {
     private String username;
     private String password;
