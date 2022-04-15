@@ -5,12 +5,14 @@ public class Chat {
     private int bsn_id;
     private boolean is_acc;
     private String message;
+    private String time;
 
-    public Chat(int chat_id,int bsn_id,boolean is_acc,String message){
+    public Chat(int chat_id,int bsn_id,boolean is_acc,String message, String time){
         this.chat_id = chat_id;
         this.bsn_id = bsn_id;
         this.is_acc = is_acc;
         this.message = message;
+        this.time = time;
     }
 
     public Chat(){
@@ -24,6 +26,7 @@ public class Chat {
                 ", bsn_id=" + bsn_id +
                 ", is_acc=" + is_acc +
                 ", message='" + message + '\'' +
+                ", time='" + time + '\'' +
                 '}';
     }
 
@@ -58,4 +61,8 @@ public class Chat {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public String getTime(){ return time; }
+
+    public void setTime(String time) { this.time = time; }
 }

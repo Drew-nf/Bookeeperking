@@ -56,7 +56,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                                     "REFERENCES vendor(vendor_id))";
         db.execSQL(createTableStatment);
 
-        createTableStatment = "CREATE TABLE chat(chat_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, is_acc BOOL, message TEXT," +
+        createTableStatment = "CREATE TABLE chat(chat_id INTEGER PRIMARY KEY AUTOINCREMENT, bsn_id INTEGER, is_acc BOOL, message TEXT, time TEXT," +
                                 "FOREIGN KEY(bsn_id)" +
                                     "REFERENCES bsn_id(bsn_id))";
         db.execSQL(createTableStatment);
