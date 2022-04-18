@@ -20,7 +20,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTableStatment = "CREATE TABLE login(username TEXT PRIMARY KEY, password TEXT, is_acc BOOL)";
+        String createTableStatment = "CREATE TABLE login(username TEXT PRIMARY KEY, password TEXT, is_acc BYTE)";
         db.execSQL(createTableStatment);
 
         createTableStatment = "CREATE TABLE bsn_id(bsn_id INTEGER PRIMARY KEY AUTOINCREMENT, c_username TEXT, a_username TEXT,"+
@@ -163,6 +163,63 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public boolean addTempVal(TempVal tempVal){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("username", tempVal.getUsername());
+        cv.put("is_acc", tempVal.getIs_acc());
+        cv.put("bsn_id", tempVal.getBsn_id());
+        cv.put("employee_id", tempVal.getEmployee_id());
+        cv.put("invoice_id", tempVal.getInvoice_id());
+        cv.put("vendor_id", tempVal.getVendor_id());
+        long insert = db.insert("temp_val", null, cv);
+        db.close();
+        if(insert == -1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public Boolean editTempValS(String value){
+        //String queryString = "UPDATE temp_val SET username = '" + value +"'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("username",value);
+        long test = db.update("temp_val",cv,null,null);
+        return true;
+    }
+
+    public Boolean editTempValB(Byte value){
+        //String queryString = "UPDATE temp_val SET username = " + value;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("is_acc",value);
+        long test = db.update("temp_val",cv,null,null);
+        return true;
+    }
+    public Boolean editTempValI(String column, int value){
+        //String queryString = "UPDATE temp_val SET username = '" + value +"'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(column,value);
+        long test = db.update(column,cv,null,null);
+        return true;
+    }
+
+
+    public Boolean isTempVal(){
+        String queryString = "Select * FROM temp_val";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+        //cursor.getCount();
+        if(cursor.getCount() == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
     //////////////////////////////////////////
     //add calender
     public boolean addCalender(Calender calender){
@@ -180,6 +237,59 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
     }
     ////////////////////////////////////////////////
+
+    public Boolean isAvailable(String username){
+        String queryString = "SELECT count(username) FROM login WHERE username = '" + username + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+        cursor.moveToFirst();
+        if(cursor.getInt(0) == 1){
+            cursor.close();
+            db.close();
+            return false;
+        }else{
+            cursor.close();
+            db.close();
+            return true;
+        }
+    }
+    public Login getLogin(String username){
+        String queryString = "SELECT * FROM login WHERE username = '" + username + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+        cursor.moveToFirst();
+        String usernamee = cursor.getString(0);
+        String password = cursor.getString(1);
+        byte is_acc = (byte) cursor.getInt(2);
+        Login login = new Login(usernamee, password, is_acc);
+        cursor.close();
+        db.close();
+        return login;
+
+    }
+
+    public List<Login> getAllLogin(){
+        List<Login> returnList= new ArrayList<>();
+        String queryString = "SELECT * FROM login";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString,null);
+        if(cursor.moveToFirst()){
+            do{
+                String username= cursor.getString(0);
+                String password = cursor.getString(1);
+                byte is_acc = (byte) cursor.getInt(2);
+
+                Login newLogin = new Login(username, password, is_acc);
+                returnList.add(newLogin);
+            }while(cursor.moveToNext());
+        }
+        else{
+            //failure. do not add anything to list.
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
 
     public List<Employee> getAllEmployee(){
         List<Employee> returnList= new ArrayList<>();

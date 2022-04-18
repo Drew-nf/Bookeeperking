@@ -10,6 +10,12 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+import LocalDatabase.DataBaseHelper;
+import LocalDatabase.Login;
 
 public class SignUpFragment extends Fragment {
 
@@ -27,8 +33,53 @@ public class SignUpFragment extends Fragment {
         view.findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SignUpFragment.this).
-                        navigate(R.id.action_signUpFragment_to_HomeFragment);
+                Byte isAcc;
+                RadioButton rb;
+                rb = (RadioButton) view.findViewById(R.id.radioButton4);
+                /*if(rb.isSelected()){
+                    isAcc = 1;
+                }else{
+                    isAcc = 0;
+                }*/
+                Login login;
+                try{
+                    login = new Login(
+                      getString(getView().findViewById(R.id.emailInput)),
+                      getString(getView().findViewById(R.id.passwordInput)),
+                      (byte) 0
+                    );
+                }catch (Exception e){
+                    login = new Login("Admin","Password", (byte) 0);
+                }
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+                Boolean isAvailable = dataBaseHelper.isAvailable(login.getUsername());
+                boolean success = false;
+                Toast toast;
+                if(isAvailable){
+                    success = dataBaseHelper.addLogin(login);
+                    if(success){
+                        toast = Toast.makeText(getContext(), "User Added", Toast.LENGTH_LONG);
+                    }else{
+                        toast = Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
+                    }
+                    toast.show();
+                }else{
+                    success = false;
+                    toast = Toast.makeText(getContext(),"Username Taken", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+                /*boolean success = dataBaseHelper.addLogin(login);
+                Toast toast;
+                if(success){
+                    toast = Toast.makeText(getContext(), "User Added", Toast.LENGTH_LONG);
+                }else{
+                    toast = Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
+                }
+                toast.show();*/
+                if(success){
+                    NavHostFragment.findNavController(SignUpFragment.this).
+                            navigate(R.id.action_signUpFragment_to_logInFragment);
+                }
             }
         });
 
@@ -39,5 +90,14 @@ public class SignUpFragment extends Fragment {
                         navigate(R.id.action_signUpFragment_to_startUpFragment);
             }
         });
+    }
+
+    public String getString() {
+        return getString();
+    }
+
+    public String getString(EditText e){
+        String k = e.getText().toString();
+        return k;
     }
 }

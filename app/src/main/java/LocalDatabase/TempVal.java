@@ -2,13 +2,13 @@ package LocalDatabase;
 
 public class TempVal {
     private String username;
-    private Boolean is_acc;
+    private Byte is_acc;
     private int bsn_id;
     private int employee_id;
     private int invoice_id;
     private int vendor_id;
 
-    public TempVal(String username, Boolean is_acc, int bsn_id, int employee_id, int invoice_id, int vendor_id){
+    public TempVal(String username, Byte is_acc, int bsn_id, int employee_id, int invoice_id, int vendor_id){
         this.username = username;
         this.is_acc = is_acc;
         this.bsn_id = bsn_id;
@@ -40,13 +40,9 @@ public class TempVal {
         this.username = username;
     }
 
-    public Boolean getIs_acc() {
-        return is_acc;
-    }
+    public Byte getIs_acc() { return is_acc;}
 
-    public void setIs_acc(Boolean is_acc) {
-        this.is_acc = is_acc;
-    }
+    public void setIs_acc(Byte is_acc) { this.is_acc = is_acc;}
 
     public int getBsn_id() {
         return bsn_id;
