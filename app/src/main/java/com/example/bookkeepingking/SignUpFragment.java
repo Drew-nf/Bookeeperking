@@ -12,12 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Login;
 
 public class SignUpFragment extends Fragment {
+    private RadioGroup radioGroup;
+    private RadioButton radioButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,14 +32,15 @@ public class SignUpFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle  savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //RadioGroup radioGroup = (RadioGroup) findViewById(R.id.signUpRadio);
 
         view.findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Byte isAcc;
-                RadioButton rb;
-                rb = (RadioButton) view.findViewById(R.id.radioButton4);
-                /*if(rb.isSelected()){
+                /*int selectedID = radioGroup.getCheckedRadioButtonId();
+                RadioButton radioButton = findViewById(selectedID);
+                if(radioButton.getText() == getString(R.string.accountant)){
                     isAcc = 1;
                 }else{
                     isAcc = 0;
