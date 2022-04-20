@@ -49,9 +49,11 @@ public class EditInvoiceFragment extends Fragment {
                 String payMethodValue = invoice.getPayMethod();
                 String vendorIdValue = invoice.getVendor_id();
                 String glValue= invoice.getgL();
-                String[] vendorId = { "Frito-Lay", "Coca Cola", "Donations" };
-                String[] item = {"Chips","Beer","Milk", "Expense"};
-                String[] gl = {"Cost of Goods Sold","Donation Expense","Utilities Expense"};
+                String[] vendorId = { "Frito-Lay", "Coca Cola", "Donations", "Repairs", "Costco", "Edison", "ADT Security", "Sam's Club", "Anheuser-Bush INC",
+                        "Southern Wine & Spirits", "Stone", "LADWP", "Other Expenses" };
+                String[] item = {"Chips","Beer","Milk", "Expense", "Soda", "Water", "Juice", "Wine", "Liquor", "Cigarettes", "Cigars", "Vapes", "Groceries"};
+                String[] gl = {"Cost of Goods Sold","Donation Expense","Utilities Expense", "Bank Charges", "Credit Card Fees", "Legal Fees", "Vehicle Expenses", "Alarm Expense",
+                        "Accounting Expense", "Office Supplies", "Advertisement Expense", "License Renewals", "Insurance Expense", "Legal Expense"};
                 String[] paymentMethod = {"Cash","Check","Credit"};
                 Spinner spinner = (Spinner) view.findViewById(R.id.spinnerVendorIdEdit);
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, vendorId);
