@@ -128,7 +128,7 @@ public class HomeFragment extends Fragment {
             {
                 NavHostFragment.findNavController(HomeFragment.this).
                         navigate(R.id.action_HomeFragment_to_chatFragment);
-                Toast.makeText(getActivity(), "getting support "+ ("\ud83d\ude14"),Toast.LENGTH_LONG).show();
+                //Toast.makeText(getActivity(), "getting support "+ ("\ud83d\ude14"),Toast.LENGTH_LONG).show();
             }
         });
 
