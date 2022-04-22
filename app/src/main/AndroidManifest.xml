@@ -13,13 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookkeepingKing">
         <activity
+            android:name=".StartActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddInvoice"
             android:exported="true"
             android:label="@string/title_activity_add_invoice"
             android:theme="@style/Theme.BookkeepingKing.NoActionBar" />
         <activity
-            android:exported="true"
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.BookkeepingKing.NoActionBar">
             <intent-filter>

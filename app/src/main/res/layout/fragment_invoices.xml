@@ -8,41 +8,41 @@
     android:background="@color/screenBackground"
     tools:context=".InvoicesFragment">
 
-    <Button
-        android:id="@+id/buttonAddInvoice"
-        android:layout_width="229dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="236dp"
-        android:text="@string/buttonAddInvoice"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/invoice"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonEditInvoice"
-        android:layout_width="229dp"
+        android:id="@+id/buttonAddInvoice"
+        android:layout_width="0dp"
         android:layout_height="80dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/buttonAddInvoice"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerInvoiceList" />
+
+    <Button
+        android:id="@+id/buttonEditInvoice"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
         android:text="@string/buttonEditInvoice"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddInvoice"
-        app:layout_constraintVertical_bias="0.159" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="131dp"
-        android:layout_height="56dp"
-        android:text="@string/invoice"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddInvoice" />
 
     <Spinner
         android:id="@+id/spinnerInvoiceList"

@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_salesTaxFragment"
             app:destination="@id/salesTaxFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
     </fragment>
     <fragment
         android:id="@+id/calendarFragment"
@@ -159,5 +162,14 @@
         <action
             android:id="@+id/action_signUpFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.bookkeepingking.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chatFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>
