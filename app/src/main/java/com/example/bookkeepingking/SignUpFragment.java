@@ -36,21 +36,22 @@ public class SignUpFragment extends Fragment {
 
         view.findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Byte isAcc;
-                /*int selectedID = radioGroup.getCheckedRadioButtonId();
-                RadioButton radioButton = findViewById(selectedID);
+                radioGroup = (RadioGroup) view.findViewById(R.id.signUpRadio);
+                int selectedID = radioGroup.getCheckedRadioButtonId();
+                RadioButton radioButton = view.findViewById(selectedID);
                 if(radioButton.getText() == getString(R.string.accountant)){
                     isAcc = 1;
                 }else{
                     isAcc = 0;
-                }*/
+                }
                 Login login;
                 try{
                     login = new Login(
                       getString(getView().findViewById(R.id.emailInput)),
                       getString(getView().findViewById(R.id.passwordInput)),
-                      (byte) 0
+                      (byte) isAcc
                     );
                 }catch (Exception e){
                     login = new Login("Admin","Password", (byte) 0);

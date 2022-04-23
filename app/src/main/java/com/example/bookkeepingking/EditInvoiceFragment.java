@@ -32,7 +32,7 @@ public class EditInvoiceFragment extends Fragment {
         getParentFragmentManager().setFragmentResultListener("dataFromInvoice", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-               
+
             }
         });
 
