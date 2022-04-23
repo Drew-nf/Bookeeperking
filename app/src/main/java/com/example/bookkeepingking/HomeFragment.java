@@ -126,7 +126,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(getActivity(), "getting support "+ ("\ud83d\ude14"),Toast.LENGTH_LONG).show();
+                NavHostFragment.findNavController(HomeFragment.this).
+                        navigate(R.id.action_HomeFragment_to_chatFragment);
+                //Toast.makeText(getActivity(), "getting support "+ ("\ud83d\ude14"),Toast.LENGTH_LONG).show();
             }
         });
 
