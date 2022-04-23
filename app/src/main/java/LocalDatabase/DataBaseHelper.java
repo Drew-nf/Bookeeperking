@@ -224,6 +224,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public Boolean editEmployee(int employee_id, String f_name, String m_name,
+                                String l_name, String address, String state,
+                                String city, String zip, String phone,
+                                String ssn, int allowances,String p_rotation,
+                                boolean is_married){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("f_name",f_name);
+        cv.put("m_name",m_name);
+        cv.put("l_name",l_name);
+        cv.put("address",address);
+        cv.put("state",state);
+        cv.put("city",city);
+        cv.put("zip",zip);
+        cv.put("phone",phone);
+        cv.put("ssn",ssn);
+        cv.put("allowances",allowances);
+        cv.put("p_rotation",p_rotation);
+        cv.put("is_married",is_married);
+        long test = db.update("employee",cv,"employee_id = " + employee_id,null);
+        return true;
+    }
+
     public TempVal getTempVal() {
         String queryString = "SELECT * FROM temp_val";
         SQLiteDatabase db = this.getReadableDatabase();

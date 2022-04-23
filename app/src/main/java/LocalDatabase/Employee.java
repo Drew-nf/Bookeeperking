@@ -5,25 +5,17 @@ import com.google.gson.annotations.SerializedName;
 public class Employee {
     private int employee_id;
     private int bsn_id;
-    @SerializedName("firstName")
     private String f_name;
-    @SerializedName("middleName")
     private String m_name;
-    @SerializedName("lastName")
     private String l_name;
-    @SerializedName("streetNumber")
     private String address;
     private String state;
     private String city;
-    @SerializedName("zipCode")
     private String zip;
-    @SerializedName("phoneNumber")
     private String phone;
     private String ssn;
     private int allowances;
-    @SerializedName("frequencyPay")
     private String p_rotation;
-    @SerializedName("maritalStatus")
     private boolean is_married;
     private boolean active;
 

@@ -18,9 +18,11 @@ import java.util.List;
 
 import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Employee;
+import LocalDatabase.Invoice;
 
 public class EmployeesFragment extends Fragment {
     boolean empIsNew;
+    public List<Employee> list = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,7 +35,6 @@ public class EmployeesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        List<Employee> list = new ArrayList<>();
         DataBaseHelper db = new DataBaseHelper(getContext());
         list = db.getAllEmployee();
         List<String> names = new ArrayList<>();
@@ -54,10 +55,13 @@ public class EmployeesFragment extends Fragment {
         view.findViewById(R.id.buttonEditEmployee).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle result = new Bundle();
-                int index = names.indexOf(spinner.getSelectedItem());
-                result.putInt("key", (index +1));
-                getParentFragmentManager().setFragmentResult("dataFromEmployee",result);
+                int employeeId = 10;
+                for(int i = 0; i < list.size() ; i++){
+                    if((list.get(i).getF_name() + " " + list.get(i).getL_name() ).equals(spinner.getSelectedItem().toString())){
+                        employeeId = list.get(i).getEmployee_id();
+                    }
+                }
+                db.editTempValI("employee_id", employeeId);
                 NavHostFragment.findNavController(EmployeesFragment.this).navigate(R.id.action_employeesFragment_to_editEmployeeFragment);
             }
         });

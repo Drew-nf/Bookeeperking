@@ -48,7 +48,7 @@ public class InvoicesFragment extends Fragment {
             public void onClick(View view){
                 int invoiceId = 10;
                 for(int i = 0; i < list.size() ; i++){
-                    invoiceNum.add(list.get(i).getInvoice_num());
+                    //invoiceNum.add(list.get(i).getInvoice_num());
                     if(list.get(i).getInvoice_num() == spinner.getSelectedItem().toString()){
                         invoiceId = list.get(i).getInvoice_id();
                     }
