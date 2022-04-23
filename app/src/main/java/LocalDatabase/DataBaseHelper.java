@@ -200,14 +200,53 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return true;
     }
     public Boolean editTempValI(String column, int value){
-        //String queryString = "UPDATE temp_val SET username = '" + value +"'";
+        //String queryString = "UPDATE temp_val SET " + column " = '" + value +"'";
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(column,value);
-        long test = db.update(column,cv,null,null);
+        long test = db.update("temp_val",cv,null,null);
         return true;
     }
 
+    public Boolean editInvoice(int invoice_id, String gL, String vendor_id, byte is_tax_deductible,
+                               String invoice_num, String item, String amount, String i_date, String pay_method){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("gL",gL);
+        cv.put("vendor_id",vendor_id);
+        cv.put("is_tax_deductible",is_tax_deductible);
+        cv.put("invoice_num",invoice_num);
+        cv.put("item", item);
+        cv.put("amount", amount);
+        cv.put("i_date",i_date);
+        cv.put("pay_method", pay_method);
+        long test = db.update("invoice",cv,"invoice_id = " + invoice_id,null);
+        return true;
+    }
+
+    public TempVal getTempVal() {
+        String queryString = "SELECT * FROM temp_val";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+        if (cursor.moveToFirst()) {
+            String username = cursor.getString(0);
+            byte is_acc = (byte) cursor.getInt(1);
+            int bsn_id = cursor.getInt(2);
+            int employee_id = cursor.getInt(3);
+            int invoice_id = cursor.getInt(4);
+            int vendor_id = cursor.getInt(5);
+
+            TempVal tempVal = new TempVal(username, is_acc, bsn_id, employee_id, invoice_id, vendor_id);
+            cursor.close();
+            db.close();
+            return tempVal;
+        }else{
+            cursor.close();
+            db.close();
+            return new TempVal("error", (byte) 0,000,000,000,000);
+
+        }
+    }
 
     public Boolean isTempVal(){
         String queryString = "Select * FROM temp_val";
@@ -444,8 +483,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
 
     }
+
+    //public int getInvoiceId(String num){
+
+    //}
+
     public Invoice getInvoice(int id) {
         String queryString = "SELECT * FROM invoice WHERE invoice_id = " + id;
+        //String queryString = "SELECT * FROM invoice WHERE invoice_id = 1";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(queryString, null);
         if (cursor.moveToFirst()) {int invoice_id=cursor.getInt(0);

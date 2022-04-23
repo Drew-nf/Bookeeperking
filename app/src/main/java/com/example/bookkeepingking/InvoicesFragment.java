@@ -19,6 +19,7 @@ import LocalDatabase.DataBaseHelper;
 import LocalDatabase.Invoice;
 
 public class InvoicesFragment extends Fragment {
+    public List<Invoice> list = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,7 +32,6 @@ public class InvoicesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        List<Invoice> list = new ArrayList<>();
         DataBaseHelper db = new DataBaseHelper(getContext());
         list = db.getAllInvoice();
         List<String> invoiceNum = new ArrayList<>();
@@ -46,11 +46,15 @@ public class InvoicesFragment extends Fragment {
         view.findViewById(R.id.buttonEditInvoice).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
-                Bundle invoiceBundle = new Bundle();
-                int index = invoiceNum.indexOf(spinner.getSelectedItem());
-                invoiceBundle.putInt("key", (index + 1));
-                getParentFragmentManager().setFragmentResult("dataFromInvoice",invoiceBundle);
+                int invoiceId = 10;
+                for(int i = 0; i < list.size() ; i++){
+                    invoiceNum.add(list.get(i).getInvoice_num());
+                    if(list.get(i).getInvoice_num() == spinner.getSelectedItem().toString()){
+                        invoiceId = list.get(i).getInvoice_id();
+                    }
+                }
+                //int selectInvoice =Integer.parseInt(spinner.getSelectedItem().toString());
+                db.editTempValI("invoice_id", invoiceId);
 
                 NavHostFragment.findNavController(InvoicesFragment.this).
                         navigate(R.id.action_invoicesFragment_to_fragmentInvoiceEditor);

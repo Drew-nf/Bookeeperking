@@ -64,9 +64,7 @@ public class TempVal {
         return invoice_id;
     }
 
-    public void setInvoice_id(int invoice_id) {
-        this.invoice_id = invoice_id;
-    }
+    public void setInvoice_id(int invoice_id) { this.invoice_id = invoice_id; }
 
     public int getVendor_id() {
         return vendor_id;
