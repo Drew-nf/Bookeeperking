@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,53 +38,71 @@ public class SignUpFragment extends Fragment {
         view.findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText editTT = (EditText) view.findViewById(R.id.firstNameInput);
+                String strFirstName = editTT.getText().toString();
+                editTT = (EditText) view.findViewById(R.id.lastNameInput);
+                String strLastName = editTT.getText().toString();
+                editTT = (EditText) view.findViewById(R.id.emailInput);
+                String strEmail = editTT.getText().toString();
+                editTT = (EditText) view.findViewById(R.id.passwordInput);
+                String strPassword = editTT.getText().toString();
+                editTT = (EditText) view.findViewById(R.id.editTextTextPassword);
+                String strRePassword = editTT.getText().toString();
+                editTT = (EditText) view.findViewById(R.id.editTextPhone);
+                String strPhone = editTT.getText().toString();
                 Byte isAcc;
                 radioGroup = (RadioGroup) view.findViewById(R.id.signUpRadio);
                 int selectedID = radioGroup.getCheckedRadioButtonId();
                 RadioButton radioButton = view.findViewById(selectedID);
-                if(radioButton.getText() == getString(R.string.accountant)){
-                    isAcc = 1;
-                }else{
-                    isAcc = 0;
-                }
                 Login login;
-                try{
-                    login = new Login(
-                      getString(getView().findViewById(R.id.emailInput)),
-                      getString(getView().findViewById(R.id.passwordInput)),
-                      (byte) isAcc
-                    );
-                }catch (Exception e){
-                    login = new Login("Admin","Password", (byte) 0);
-                }
-                DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
-                Boolean isAvailable = dataBaseHelper.isAvailable(login.getUsername());
-                boolean success = false;
-                Toast toast;
-                if(isAvailable){
-                    success = dataBaseHelper.addLogin(login);
-                    if(success){
-                        toast = Toast.makeText(getContext(), "User Added", Toast.LENGTH_LONG);
-                    }else{
-                        toast = Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
+                if(TextUtils.isEmpty(strFirstName)||TextUtils.isEmpty(strLastName)||
+                    TextUtils.isEmpty(strEmail)||TextUtils.isEmpty(strPassword)||
+                    TextUtils.isEmpty(strRePassword)||TextUtils.isEmpty(strPhone)) {
+                    Toast toast;
+                    toast = Toast.makeText(getContext(),"Completely fill out form", Toast.LENGTH_LONG);
+                    toast.show();
+                }else{
+                    if(strPassword.equals(strRePassword)){
+                        try {
+                            if (radioButton.getText() == getString(R.string.accountant)) {
+                                isAcc = 1;
+                            } else {
+                                isAcc = 0;
+                            }
+                            login = new Login(
+                                    getString(getView().findViewById(R.id.emailInput)),
+                                    getString(getView().findViewById(R.id.passwordInput)),
+                                    (byte) isAcc
+                            );
+                        } catch (Exception e) {
+                            login = new Login("Admin", "Password", (byte) 0);
+                        }
+                        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+                        Boolean isAvailable = dataBaseHelper.isAvailable(strEmail);
+                        boolean success = false;
+                        Toast toast;
+                        if (isAvailable) {
+                            success = dataBaseHelper.addLogin(login);
+                            if (success) {
+                                toast = Toast.makeText(getContext(), "User Added", Toast.LENGTH_LONG);
+                            } else {
+                                toast = Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
+                            }
+                            toast.show();
+                        } else {
+                            success = false;
+                            toast = Toast.makeText(getContext(), "Username Taken", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                        if (success) {
+                            NavHostFragment.findNavController(SignUpFragment.this).
+                                    navigate(R.id.action_signUpFragment_to_logInFragment);
+                        }
+                    }else {
+                        Toast toast;
+                        toast = Toast.makeText(getContext(),"Passwords must match", Toast.LENGTH_LONG);
+                        toast.show();
                     }
-                    toast.show();
-                }else{
-                    success = false;
-                    toast = Toast.makeText(getContext(),"Username Taken", Toast.LENGTH_LONG);
-                    toast.show();
-                }
-                /*boolean success = dataBaseHelper.addLogin(login);
-                Toast toast;
-                if(success){
-                    toast = Toast.makeText(getContext(), "User Added", Toast.LENGTH_LONG);
-                }else{
-                    toast = Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
-                }
-                toast.show();*/
-                if(success){
-                    NavHostFragment.findNavController(SignUpFragment.this).
-                            navigate(R.id.action_signUpFragment_to_logInFragment);
                 }
             }
         });
