@@ -69,6 +69,7 @@ public class CalendarFragment extends Fragment {
                         toast=Toast.makeText(getContext(), "Event Added", Toast.LENGTH_LONG);
                     } else {
                         toast=Toast.makeText(getContext(), "Your Event has been saved! Thank you :)", Toast.LENGTH_LONG);
+
                     }
 
                     toast.show();
