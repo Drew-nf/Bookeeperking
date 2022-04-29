@@ -2,6 +2,7 @@ package com.example.bookkeepingking;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,9 @@ public class CalendarFragment extends Fragment {
 
 
 
+
             view.findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+                //final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sadaf);
                 @Override
                 public void onClick(View v) {
                     Calender calender;
@@ -64,6 +67,8 @@ public class CalendarFragment extends Fragment {
 
                     DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
                     boolean success = dataBaseHelper.addCalender(calender);
+
+
                     Toast toast;
                     if (success) {
                         toast=Toast.makeText(getContext(), "Event Added", Toast.LENGTH_LONG);
@@ -72,6 +77,7 @@ public class CalendarFragment extends Fragment {
 
                     }
 
+                    //mediaPlayer.start();
                     toast.show();
                     NavHostFragment.findNavController(CalendarFragment.this).
                             navigate(R.id.action_calendarFragment_to_FirstFragment);
