@@ -5,6 +5,7 @@ public class Calender {
 
     private String c_name;
     private String c_date;
+    //private Date c_date;
 
     public Calender(String c_name, String c_date) {
         this.c_name = c_name;
