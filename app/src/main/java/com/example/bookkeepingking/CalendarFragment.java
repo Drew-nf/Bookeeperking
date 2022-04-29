@@ -23,6 +23,7 @@ import com.events.calendar.views.EventsCalendar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import LocalDatabase.Calender;
 import LocalDatabase.DataBaseHelper;
@@ -33,40 +34,14 @@ public class CalendarFragment extends Fragment {
     private PopupWindow popupWindow;
     private CalendarView eventsCalendar;
     // an array to save all events (including dates)
-    private ArrayList<Calender> events;
+    private List<Calender> events;
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View fragmentFirstLayout = inflater.inflate(R.layout.fragment_calendar, container, false);
-        eventsCalendar = fragmentFirstLayout.findViewById(R.id.calendarView);
-        eventsCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                // traversing/iterating all events
-                // goes through the array and if the dates matches the click, it gives a toaster
-                // WHAT WE NEED TO DO:
-                // date should be a date object
-                // add all the events into an array
-                // we want to parse the date into year, month, and day from the database
-                /*
-                for(Calender calender : events){
-                    if(calender.getC_date()){
-                        Toast.makeText(requireContext(), calender.getC_name(), Toast.LENGTH_LONG).show();
-                        break;
-                    }
-                }
-                 */
-                // Months are from 0-11
-                if(year == 2022 && month == 4 && dayOfMonth == 24){
-                    Toast.makeText(requireContext(), "SALES TAX DUE", Toast.LENGTH_LONG).show();
-                }
-                if(year == 2022 && month == 4 && dayOfMonth == 15){
-                    Toast.makeText(requireContext(), "RENEWAL OF CIG LICENSE", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+
 
         // events = new ArrayList<>();//fetch the list from the db
 
@@ -77,6 +52,40 @@ public class CalendarFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+        events = dataBaseHelper.getAllCalender();
+        eventsCalendar = view.findViewById(R.id.calendarView);
+        eventsCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+
+                // traversing/iterating all events
+                // goes through the array and if the dates matches the click, it gives a toaster
+                // WHAT WE NEED TO DO:
+                // date should be a date object
+                // add all the events into an array
+                // we want to parse the date into year, month, and day from the database
+                // need a way to parse the date into the database
+
+                for(Calender calender : events){
+                    String string = calender.getC_date();
+                    String[] dates = string.split("/",5);
+                    if(month == (Integer.parseInt(dates[0])-1)  && dayOfMonth ==Integer.parseInt(dates[1]) && year==Integer.parseInt(dates[2])){
+                        Toast.makeText(requireContext(), calender.getC_name(), Toast.LENGTH_LONG).show();
+                        break;
+                    }
+                }
+
+                // Months are from 0-11
+                if(year == 2022 && month == 4 && dayOfMonth == 24){
+                    Toast.makeText(requireContext(), "SALES TAX DUE", Toast.LENGTH_LONG).show();
+                }
+                if(year == 2022 && month == 4 && dayOfMonth == 15){
+                    Toast.makeText(requireContext(), "RENEWAL OF CIG LICENSE", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
         view.findViewById(R.id.button3).setOnClickListener(v -> {
             Calender calender;
@@ -84,33 +93,42 @@ public class CalendarFragment extends Fragment {
 
             try {
                 calender = new Calender(
-
+                        -1, 0,
                         getString(getView().findViewById(R.id.editTextTextPersonName3)),
                         getString(getView().findViewById(R.id.editTextTextPersonName4))
                 );
 
 
             } catch (Exception e) {
-                calender = new Calender("error", "error");
+                calender = new Calender(-1, 0, "", "");
             }
 
-            DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
             boolean success = dataBaseHelper.addCalender(calender);
             Toast toast;
             if (success) {
                 toast = Toast.makeText(getContext(), "Event Added", Toast.LENGTH_LONG);
+                toast.show();
+                NavHostFragment.findNavController(CalendarFragment.this).
+                        navigate(R.id.action_calendarFragment_to_FirstFragment);
             } else {
-                toast = Toast.makeText(getContext(), "Your Event has been saved! Thank you :)", Toast.LENGTH_LONG);
+                toast = Toast.makeText(getContext(), "Your Event has not been added", Toast.LENGTH_LONG);
+                toast.show();
             }
 
-            toast.show();
-            NavHostFragment.findNavController(CalendarFragment.this).
-                    navigate(R.id.action_calendarFragment_to_FirstFragment);
 
 
         });
 
+        view.findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(CalendarFragment.this).
+                        navigate(R.id.action_calendarFragment_to_FirstFragment);
+            }
+        });
     }
+
+
 
     public String getString() {
         return getString();
@@ -119,6 +137,13 @@ public class CalendarFragment extends Fragment {
     public String getString(EditText e) {
         String k = e.getText().toString();
         return k;
+    }
+
+    public String returnMonth(String s) {
+        if (s.charAt(0) == 0){
+            return String.valueOf(s.charAt(1));
+        }
+        return s;
     }
 
 }

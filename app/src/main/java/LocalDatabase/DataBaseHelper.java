@@ -287,8 +287,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public boolean addCalender(Calender calender){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("c_name", calender.getC_name());
-        cv.put("c_date", calender.getC_date());
+        cv.put("bsn_id", calender.getBsn_id());
+        cv.put("name", calender.getC_name());
+        cv.put("date", calender.getC_date());
 
         long insert = db.insert("calender", null,cv);
         db.close();
@@ -420,35 +421,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.close();
         return returnList;
     }
-    //////////////////////////Calender//////////////////////////////////
-
-
-    public List<Calender> getAllCalender(){
-        List<Calender> returnList= new ArrayList<>();
-        String queryString = "SELECT * FROM calender";
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(queryString,null);
-        if(cursor.moveToFirst()){
-            do{
-                int calender_id=cursor.getInt(0);
-                int bsn_id=cursor.getInt(1);
-                String c_name= cursor.getString(2);
-                String c_date= cursor.getString(3);
-
-
-
-                Calender newCalender = new Calender(c_name,c_date);
-                returnList.add(newCalender);
-            }while(cursor.moveToNext());
-        }
-        else{
-            //failure. do not add anything to list.
-        }
-        cursor.close();
-        db.close();
-        return returnList;
-    }
-
 
 
     ///////////////////////////////Calender/////////////////////////////
@@ -516,71 +488,72 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         //String queryString = "SELECT * FROM invoice WHERE invoice_id = 1";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(queryString, null);
-        if (cursor.moveToFirst()) {int invoice_id=cursor.getInt(0);
-            int bsn_id=cursor.getInt(1);
-            String gL=cursor.getString(2);
-            String vendor_id=cursor.getString(3);
-            byte is_tax_deductible=(byte) cursor.getInt(4);
-            String invoice_num=cursor.getString(5);
-            String item=cursor.getString(6);
-            String amount= cursor.getString(7);
-            String i_date= cursor.getString(8);
+        if (cursor.moveToFirst()) {
+            int invoice_id = cursor.getInt(0);
+            int bsn_id = cursor.getInt(1);
+            String gL = cursor.getString(2);
+            String vendor_id = cursor.getString(3);
+            byte is_tax_deductible = (byte) cursor.getInt(4);
+            String invoice_num = cursor.getString(5);
+            String item = cursor.getString(6);
+            String amount = cursor.getString(7);
+            String i_date = cursor.getString(8);
             String pay_method = cursor.getString(9);
 
-            Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,is_tax_deductible,invoice_num,item,
-                    amount,i_date,pay_method);
+            Invoice newInvoice = new Invoice(invoice_id, bsn_id, gL, vendor_id, is_tax_deductible, invoice_num, item,
+                    amount, i_date, pay_method);
             cursor.close();
             db.close();
             return newInvoice;
 
-        }
-        else{
+        } else {
             int invoice_id = 666;
-            int bsn_id=666;
-            String gL="666";
-            String vendor_id="666";
+            int bsn_id = 666;
+            String gL = "666";
+            String vendor_id = "666";
             byte is_tax_deductible = 0;
-            String invoice_num="error";
-            String item="error";
-            String amount= "error";
-            String i_date= "error";
+            String invoice_num = "error";
+            String item = "error";
+            String amount = "error";
+            String i_date = "error";
             String pay_method = "cash";
 
-            Invoice newInvoice = new Invoice(invoice_id,bsn_id,gL,vendor_id,is_tax_deductible,invoice_num,item,
-                    amount,i_date,pay_method);
+            Invoice newInvoice = new Invoice(invoice_id, bsn_id, gL, vendor_id, is_tax_deductible, invoice_num, item,
+                    amount, i_date, pay_method);
             cursor.close();
             db.close();
             return newInvoice;
         }
+    }
         ///////////////////////////calender////////////////////////////////////////
-        /*public Calender getCalender(int id) {
-            String queryString = "SELECT * FROM calender WHERE calender_id = " + id;
+        public List <Calender> getAllCalender() {
+            List <Calender> returnList = new ArrayList<>();
+            String queryString = "SELECT * FROM calender";
             SQLiteDatabase db = this.getReadableDatabase();
             Cursor cursor = db.rawQuery(queryString, null);
-            if (cursor.moveToFirst()) {int calender_id=cursor.getInt(0);
-                String c_name= cursor.getString(1);
-                String c_date= cursor.getString(2);
+            if (cursor.moveToFirst()) {
+                do {
+                    int calender_id = cursor.getInt(0);
+
+                    int bsn_id = cursor.getInt(1);
+                    String c_name = cursor.getString(2);
+                    String c_date = cursor.getString(3);
 
 
-                Calender newCalender = new Calender(c_name,c_date,);
-                cursor.close();
-                db.close();
-                return newCalender;
+                    Calender newCalender = new Calender(calender_id, bsn_id, c_name, c_date);
+                    returnList.add(newCalender);
+                }while (cursor.moveToNext());
 
             }
             else{
 
-                String c_name= "error";
-                String c_date= "error";
-
-
-                Calender newCalender = new Calender(c_name,c_date);
-                cursor.close();
-                db.close();
-                return newCalender;
             }
 
-        */
+
+            cursor.close();
+            db.close();
+
+            return returnList;
 
     }
 }
