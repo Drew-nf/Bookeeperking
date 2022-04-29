@@ -59,6 +59,7 @@
     <!--Employees screen-->
     <string name="addEmployee">Add New Employee</string>
     <string name="editEmployee">Edit Employee Info</string>
+    <string name="employee">Employee:</string>
 
     <!--Sales Tax screen-->
     <string name="salexTaxTitle">Sales Tax Calculator</string>
