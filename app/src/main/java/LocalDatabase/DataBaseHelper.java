@@ -555,6 +555,58 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
             return returnList;
 
+        }
+
+        //////////////////////////////chat//////////////////////////
+        public ArrayList<Chat> getAllMessages(){
+            ArrayList<Chat> returnList= new ArrayList<>();
+            String queryString = "SELECT * FROM chat";
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cursor = db.rawQuery(queryString,null);
+            if(cursor.moveToFirst()){
+                do{
+                    int chat_id=cursor.getInt(0);
+                    int bsn_id=cursor.getInt(1);
+                    boolean is_acc=(cursor.getInt(2)== 1? true:false);
+                    String message=cursor.getString(3);
+                    String time=cursor.getString(4);
+
+
+
+                    Chat newChat = new Chat(chat_id,bsn_id,is_acc,message,time);
+                    returnList.add(newChat);
+                }while(cursor.moveToNext());
+            }
+            else{
+                //failure. do not add anything to list.
+            }
+            cursor.close();
+            db.close();
+            return returnList;
+        }
+
+        public boolean addChat(Chat chat){
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues cv = new ContentValues();
+            cv.put("bsn_id", chat.getBsn_id());
+            cv.put("is_acc",chat.isIs_acc());
+            cv.put("message",chat.getMessage());
+            cv.put("time",chat.getTime());
+            long insert = db.insert("chat", null,cv);
+            db.close();
+            if(insert == -1){
+                return false;
+            }else{
+                return true;
+            }
+        }
+    public boolean isacc(String username) {
+        String queryString = "SELECT is_acc FROM login WHERE username = '" + username + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+        cursor.moveToFirst();
+        boolean is_acc=(cursor.getInt(0)== 1? true:false);
+        return is_acc;
     }
 }
 

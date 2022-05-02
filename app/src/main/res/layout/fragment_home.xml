@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/screenBackground"
+    android:background="@drawable/background"
+    android:backgroundTint="#00FFFFFF"
+    android:backgroundTintMode="src_over"
     android:orientation="horizontal"
     tools:context=".HomeFragment">
     <Button

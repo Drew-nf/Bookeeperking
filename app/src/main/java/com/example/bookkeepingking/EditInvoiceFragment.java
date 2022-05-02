@@ -22,7 +22,7 @@ import LocalDatabase.Invoice;
 import LocalDatabase.TempVal;
 
 public class EditInvoiceFragment extends Fragment {
-    public int id;;
+    public int id;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
