@@ -44,6 +44,7 @@ public class LogInFragment extends Fragment {
                     if((login.getPassword()).equals(getString(getView().findViewById(R.id.editTextTextPassword2)))){
                         if(dataBaseHelper.isTempVal()){
                             dataBaseHelper.editTempValS(login.getUsername());
+                            dataBaseHelper.editTempValB(login.getIs_acc());
                         }else{
                             TempVal tempVal = new TempVal(login.getUsername(),login.getIs_acc(),0,0,0,0);
                             dataBaseHelper.addTempVal(tempVal);
