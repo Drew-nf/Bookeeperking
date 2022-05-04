@@ -52,7 +52,7 @@ public class HomeFragment extends Fragment {
         customerSupp.setVisibility(View.GONE);
         isAllFabsVisible = false;
 
-        view.findViewById(R.id.buttonHomeCalender).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.buttonHomeCalendar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(HomeFragment.this).
@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
                         navigate(R.id.action_HomeFragment_to_payrollFragment);
             }
         });
-        view.findViewById(R.id.buttonHomeSalestax).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.buttonHomeSalesTax).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(HomeFragment.this).
