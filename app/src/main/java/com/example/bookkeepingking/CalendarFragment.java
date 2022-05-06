@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -42,7 +43,6 @@ public class CalendarFragment extends Fragment {
             Bundle savedInstanceState) {
         View fragmentFirstLayout = inflater.inflate(R.layout.fragment_calendar, container, false);
 
-
         // events = new ArrayList<>();//fetch the list from the db
 
         // Inflate the layout for this fragment
@@ -51,7 +51,8 @@ public class CalendarFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        //ImageView imageView = view.findViewById(R.id.day1);
+        //imageView.setAlpha(0);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
         events = dataBaseHelper.getAllCalender();
         eventsCalendar = view.findViewById(R.id.calendarView);

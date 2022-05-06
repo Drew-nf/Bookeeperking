@@ -7,6 +7,19 @@
     tools:context=".CalendarFragment">
 
 
+    <ImageView
+        android:id="@+id/day1"
+        android:layout_width="42dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="66dp"
+        android:alpha="1"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/day2"
+        app:layout_constraintStart_toStartOf="@+id/calendarView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
@@ -17,7 +30,7 @@
         android:backgroundTintMode="screen"
         app:layout_constraintBottom_toTopOf="@+id/addevent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
