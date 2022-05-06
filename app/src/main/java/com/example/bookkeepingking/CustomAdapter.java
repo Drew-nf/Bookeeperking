@@ -52,9 +52,10 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             dateTV.setText(chat.getTime());
         }
     }
-
+    ///if statement here for accountant
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         if (viewType == MESSAGE_TYPE_IN) {
             return new MessageInViewHolder(LayoutInflater.from(context).inflate(R.layout.receiver_chat_layout, parent, false));
         }

@@ -255,11 +255,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:textStyle="bold"
+        android:textColor="@color/buttonText"
+        android:textSize="18dp"
+        android:padding="10dp"
         android:text="Message Accountant"
+        android:background="@drawable/textbackground"
         app:layout_constraintBottom_toBottomOf="@+id/accountantButton"
         app:layout_constraintEnd_toStartOf="@+id/accountantButton"
         app:layout_constraintTop_toTopOf="@+id/accountantButton" />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+   <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/customerSupport"
 
         android:layout_width="wrap_content"
@@ -282,6 +287,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/customerSupport"
         app:layout_constraintEnd_toStartOf="@+id/customerSupport"
         app:layout_constraintTop_toTopOf="@+id/customerSupport" />
+        -->
 
 
 

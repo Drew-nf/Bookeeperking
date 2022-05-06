@@ -41,15 +41,15 @@ public class HomeFragment extends Fragment {
 
         // FAB button
         mAccountant=view.findViewById(R.id.accountantButton);
-        mCustomersupp=view.findViewById(R.id.customerSupport);
+       //mCustomersupp=view.findViewById(R.id.customerSupport);
         // Also register the action name text, of all the FABs.
         addAccountantText = view.findViewById(R.id.accountText);
-        customerSupp=view.findViewById(R.id.customerSupportText);
+        //customerSupp=view.findViewById(R.id.customerSupportText);
 
         mAccountant.setVisibility(View.GONE);
         addAccountantText.setVisibility(View.GONE);
-        mCustomersupp.setVisibility(View.GONE);
-        customerSupp.setVisibility(View.GONE);
+        //mCustomersupp.setVisibility(View.GONE);
+       // customerSupp.setVisibility(View.GONE);
         isAllFabsVisible = false;
 
         view.findViewById(R.id.buttonHomeCalendar).setOnClickListener(new View.OnClickListener() {
@@ -99,8 +99,8 @@ public class HomeFragment extends Fragment {
 
                     mAccountant.show();
                     addAccountantText.setVisibility(View.VISIBLE);
-                    mCustomersupp.show();
-                    customerSupp.setVisibility(View.VISIBLE);
+                    //mCustomersupp.show();
+                    //customerSupp.setVisibility(View.VISIBLE);
                     // make the boolean variable true as
                     // we have set the sub FABs
                     // visibility to GONE
@@ -112,8 +112,8 @@ public class HomeFragment extends Fragment {
                     // texts and FABs GONE.
                     mAccountant.hide();
                     addAccountantText.setVisibility(View.GONE);
-                    mCustomersupp.hide();
-                    customerSupp.setVisibility(View.GONE);
+                    //mCustomersupp.hide();
+                    //customerSupp.setVisibility(View.GONE);
 
                     // make the boolean variable false
                     // as we have set the sub FABs
@@ -131,12 +131,12 @@ public class HomeFragment extends Fragment {
                 //Toast.makeText(getActivity(), "getting support "+ ("\ud83d\ude14"),Toast.LENGTH_LONG).show();
             }
         });
-
+/*
         mCustomersupp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Toast.makeText(getActivity(), "Customer won't support "+ ("\ud83d\ude14"),Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
     }
 }
