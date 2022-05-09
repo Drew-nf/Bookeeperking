@@ -45,6 +45,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="VIP Liquor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,6 +69,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="1234 Main St"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCompanyName" />
 
@@ -91,6 +93,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="Grranade Hills"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextAddress" />
 
@@ -114,6 +117,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="number"
+            android:text="CA"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCity" />
 
@@ -137,6 +141,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="phone"
+            android:text="91032"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextState" />
 
@@ -160,6 +165,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="9492765432"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextZip" />
 
@@ -197,6 +203,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="68-2657898"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerCoInfo" />
 
@@ -221,6 +228,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="12-235-9876"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextFedEmployer" />
 
@@ -245,6 +253,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="3.40%"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextStateEmployer" />
 
