@@ -68,6 +68,17 @@
     <string name="calculate">Calculate</string>
     <string name="totalSalexTax">Total Sales Tax Payment for the month:</string>
 
+    <!--Sales Tax screen-->
+    <string-array name="businessTypes">
+        <item>Sole proprietorship</item>
+        <item>Partnership</item>
+        <item>LLC</item>
+        <item>C-Corp</item>
+        <item>S-Corp</item>
+        <item>Nonprofit-Corp</item>
+    </string-array>
+    
+    
     <!--Should find out if this is necessary-->
     <string name="title_activity_add_invoice">addInvoice</string>
     <!-- Strings used for fragments for navigation -->

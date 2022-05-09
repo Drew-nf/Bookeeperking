@@ -127,7 +127,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/buttonHomePayroll"
         app:layout_constraintTop_toBottomOf="@+id/buttonHomeEmployees"
-        app:layout_constraintBottom_toTopOf="@id/buttonHomeCoInfo"
+        app:layout_constraintBottom_toTopOf="@id/buttonCoInfo"
         app:strokeColor="#1616E6"
         app:strokeWidth="2dp">
 
@@ -161,7 +161,7 @@
         android:textColor="@color/buttonText"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonHomeCoInfo"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCoInfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonHomePayroll"
         app:strokeColor="#1616E6"
@@ -189,7 +189,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/buttonHomeCoInfo"
+        android:id="@+id/buttonCoInfo"
         android:layout_width="170dp"
         android:layout_height="160dp"
         android:layout_marginBottom="84dp"

@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context=".CompanyInfoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -40,13 +41,11 @@
             android:id="@+id/editTextCompanyName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="64dp"
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.321"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -172,7 +171,7 @@
             android:layout_marginTop="16dp"
             android:text="Business Type:"
             android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="@id/spinnerBusinessEdit"
+            app:layout_constraintBottom_toBottomOf="@id/spinnerCoInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPhnnumber" />
 
@@ -199,7 +198,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerBusinessEdit" />
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCoInfo" />
 
         <TextView
             android:id="@+id/textViewStateEmployer"
@@ -250,7 +249,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextStateEmployer" />
 
         <Button
-            android:id="@+id/buttonCancelEmpEdit"
+            android:id="@+id/buttonCancelCoInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -261,7 +260,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextUnemployment" />
 
         <Button
-            android:id="@+id/buttonSavePayroll"
+            android:id="@+id/buttonSaveCoInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
@@ -271,10 +270,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewUnemployment" />
 
         <Spinner
-            android:id="@+id/spinnerBusinessEdit"
+            android:id="@+id/spinnerCoInfo"
             android:layout_width="205dp"
             android:layout_height="59dp"
             android:layout_marginEnd="10dp"
+            android:entries="@array/businessTypes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPhnnumber"
             tools:ignore="SpeakableTextPresentCheck" />

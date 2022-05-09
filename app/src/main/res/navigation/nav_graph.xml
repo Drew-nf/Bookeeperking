@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_companyInfoFragment"
+            app:destination="@id/companyInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/calendarFragment"
@@ -170,6 +173,15 @@
         tools:layout="@layout/fragment_chat" >
         <action
             android:id="@+id/action_chatFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/companyInfoFragment"
+        android:name="com.example.bookkeepingking.CompanyInfoFragment"
+        android:label="fragment_company_info"
+        tools:layout="@layout/fragment_company_info" >
+        <action
+            android:id="@+id/action_companyInfoFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>

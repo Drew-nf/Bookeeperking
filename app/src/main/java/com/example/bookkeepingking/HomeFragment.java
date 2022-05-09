@@ -87,6 +87,13 @@ public class HomeFragment extends Fragment {
                         navigate(R.id.action_HomeFragment_to_salesTaxFragment);
             }
         });
+        view.findViewById(R.id.buttonCoInfo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomeFragment.this).
+                        navigate(R.id.action_HomeFragment_to_companyInfoFragment);
+            }
+        });
 
         view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
